@@ -34,8 +34,16 @@ fond(s) choisis par l'investisseur de suivre
 
 ## 3.	Périmètre du projet (limitation)
 
-## 4.	Besoins
+## 4.	Besoins fonctionnels
 
+- L'utilisateur doit pouvoir faire des ordres d'achat.
+- L'utilisateur doit pouvoir simuler des plans d'investissement dans le passé.
+- L'utilisateur doit pouvoir simuler des plans d'investissement sur le marché actuel, qui évolue avec celui-ci.
+- L'utilisateur doit pouvoir créer des rapports se basant sur des nouvelles impactant les différents marchés financiers, qui lui indiquent au moins 3 actions risquant d'être influencées par ces nouvelles.
+- L'utilisateur doit pouvoir faire le choix entre 3 types de comptes simulés (PEA, Livret A, Compte titre) afin d'étudier différentes stratégies qu'il pourrait employer pour son épargne.
+- L'utilisateur peut être notifié pour des ordres d'achat, s'il décide de mettre en place des alertes pour des seuils, ou pour être informé de la création d'un rapport automatique.
+
+  
 ## 5.	Budget, ressources (minet, CLUSTER IA)
 
 ## 6.	Délais (fin du semestre)
