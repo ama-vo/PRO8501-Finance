@@ -65,53 +65,23 @@ financiers dans un environnement sans risque réel.
 
 ## 2.	Objectifs
 
-Cette plateforme fictive d’investissement, que nous nommerons **Taurus Capital**, 
-s’articulera autour de sept grands objectifs, qui guideront son développement :
+Nous nommerons **Taurus Capital**, cette plateforme web qui sera un 
+**Conseiller et un Simulateur d'investissement financier**. 
 
-1) **Simuler des investissements financiers**  
-La plateforme permettra à l'utilisateur d'acheter ou de vendre des actions ou ETF, 
-à partir de données antérieures ou en temps réel.
+Le but de ce simulateur est d'observer les rendements financiers effectifs ou
+potentiels sur des marchés boursiers.
+Ainsi, l'utilisateur peut acheter de manière factice des parts de fonds financiers
+à une date antérieure (par exemple en janvier 2015) ou bien passer des ordres
+factices en direct et voir le cours de son _achat_ fluctuer.
+Cela permettra aux utilisateurs d'expérimenter différentes stratégies sans éprouver
+de pertes, ainsi que de comprendre le fonctionnement des marchés boursiers.
 
-2) **Reproduire l'expérience d'un investissement réel**  
-On devra permettre à l'utilisateur d’observer l’évolution de la valeur de son 
-portefeuille en fonction des fluctuations du marché.
-
-3) **Permettre l’expérimentation de différentes stratégies**  
-On donnera la possibilité à l’utilisateur de construire et de modifier un 
-portefeuille virtuel afin de comparer différentes approches d’investissement 
-et d’en observer les performances. On pourra implémenter des critères comme le 
-DCA (Dollar Cost Averaging), c'est-à-dire l'achat programmé périodique, différents
-montants de frais d'achat, différentes enveloppes fiscales (PEA, CTO, assurance-vie) 
-ou alors différents marchés.
-
-4) **Exploiter les données historiques**
-Taurus Capital permettra à l’utilisateur de se placer à une date donnée dans le passé 
-et de simuler les conséquences d’un investissement réalisé à cette période. 
-Il pourra ainsi analyser après coup, les performances obtenues et mieux comprendre 
-l’impact du choix de la date d’investissement.
-
-5) **Assurer un suivi en temps réel** 
-À l'aide des sockets réseau notamment, le site devra actualiser régulièrement 
-les cours des actifs suivis afin que l’utilisateur puisse observer les fluctuations 
-du marché et de son portefeuille virtuel. Cette fonctionnalité permet également 
-de répondre à la contrainte de partie réseau et de notion de temps réel du projet.
-
-
-6) **Fournir des informations pédagogiques** 
-Pour répondre à la dimension éducative, une section sera dédié à accompagner 
-l’utilisateur dans la compréhension des différents produits financiers, 
-du fonctionnement des marchés et des principaux indicateurs utilisés pour 
-évaluer un investissement. Cela pourra se présenter sous la forme d'articles ou 
-de fiches de synthèse informationnelles.
-
-7) **Intégrer des fonctionnalités basées sur l’intelligence artificielle** 
-L'IA étant un sujet qui nous tient à coeur, on aimerait implémenter des fonctionnalités 
-capable générer des rapports et des analyses à partir des données disponibles sur 
-un secteur, l’état général du marché ou d'une action spécifique. 
-Ces rapports pourront notamment mettre en évidence des évolutions 
-importantes, des événements d'actualité susceptibles d’influencer 
-les marchés ou certains risques associés à un investissement.
-
+En parallèle de ce mécanisme qui permet à l'utilisateur de s'acculturer aux marchés
+financiers, différents rapports générés à l'aide de l'IA seront disponibles pour 
+conseiller et avertir l'utilisateur des informations capitales en direct (cela 
+sur des fonds précis ou bien sur le marché en général). Une section pédagogique 
+sera aussi accessible pour que l'utilisateur puisse apprendre de nouvelles choses
+sur les marchés financiers et de tout ce qui est sous-jacent. 
 
 ## 3.	Périmètre du projet
 
@@ -138,13 +108,18 @@ profil et ses préférences financières.
 ou à cours limité).
 - L'utilisateur doit pouvoir simuler des plans d'investissement dans le passé.
 - L'utilisateur doit pouvoir simuler des plans d'investissement sur le marché 
-actuel, qui évolue avec celui-ci.
+actuel, qui évolue en temps réel avec celui-ci.
 - L'utilisateur doit pouvoir faire le choix entre 3 types de comptes simulés (PEA, 
 Livret A, Compte titre) afin d'étudier différentes stratégies qu'il pourrait 
 employer pour son épargne.
 - L'utilisateur peut être notifié pour des ordres d'achat, s'il décide de mettre
 en place des alertes pour des seuils, ou pour être informé de la création d'un 
 rapport automatique.
+- L'utilisateur doit pouvoir faire des achats programmés périodiques (DCA - Dollar 
+Cost Averaging).
+- L'utilisateur doit pouvoir choisir différentes enveloppes fiscales (PEA, CTO, 
+assurance-vie).
+- L'utilisateur doit pouvoir accéder aux montants des frais d'achat.
 
 ### Compte rendu IA
 - L'utilisateur doit pouvoir accéder une analyse IA détailée de l'ensemble des
@@ -155,6 +130,15 @@ risquant d'être influencées par ces nouvelles.
 - L'utilisateur doit pouvoir accéder à une interface lui permettant de 
 s'informer des différences de modalités entre les différentes enveloppes 
 de différents courtiers.
+
+### Contenus pédagogiques
+- L'utilisateur doit pouvoir accéder à une section dédiée à l'accompagner 
+dans la compréhension des différents produits financiers, du fonctionnement des
+marchés et des principaux indicateurs utilisés pour évaluer un investissement. 
+Cela pourra se présenter sous la forme d'articles ou de fiches de synthèse 
+informationnelles.
+- L'utilisateur doit pouvoir accéder à un chat dédié pour comparer les enveloppes
+fiscales de différentes banques. 
   
 ## 5.	Enveloppe budgétaire et ressources
 
@@ -165,7 +149,7 @@ Les ressources dont nous disposons pour ce projet sont :
 L'utilisation du cluster IA pourra être envisagé dans le cas où on décide 
 d'entraîner notre propre modèle.
 
-Ce projet étant académique nous ne possédons pas de ressources pécuniaires.
+Ce projet étant académique, nous ne possédons pas de ressources pécuniaires.
 
 ## 6.	Délais
 
