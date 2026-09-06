@@ -87,10 +87,11 @@ sur les marchés financiers et de tout ce qui est sous-jacent.
 
 La finance étant un domaine vaste, nous nous concentrerons dans ce premier temps
 sur : 
-- l'achat factice de fonds à une date utlérieure ou actuelle.
+- l'achat factice de fonds à une date ultérieure ou actuelle.
 - la création d'analyses du marché ou de fonds précis grâce à l'IA.
+- les produits proposé seront essentiellement européen ou alors accessible via du swap.  
 
-Dans un second temps, nous pourrions, bien que cela ne soit pas l'object de
+Dans un second temps, nous pourrions, bien que cela ne soit pas l'objectif de
 notre projet à ce stade : 
 - créer un simulateur itératif sur _d'anciennes données_ avec la méthode de
 Monte Carlo.
@@ -109,16 +110,15 @@ ou à cours limité).
 - L'utilisateur doit pouvoir simuler des plans d'investissement dans le passé.
 - L'utilisateur doit pouvoir simuler des plans d'investissement sur le marché 
 actuel, qui évolue en temps réel avec celui-ci.
-- L'utilisateur doit pouvoir faire le choix entre 3 types de comptes simulés (PEA, 
-Livret A, Compte titre) afin d'étudier différentes stratégies qu'il pourrait 
+- L'utilisateur doit pouvoir faire le choix entre 4 types de comptes simulés (PEA, 
+Livret A, Compte titre, assurance vie) afin d'étudier différentes stratégies qu'il pourrait 
 employer pour son épargne.
+- L'utilisateur pourra décider des frais de courtage si il simule un comptes de type PEA ou Compte-Titre.
 - L'utilisateur peut être notifié pour des ordres d'achat, s'il décide de mettre
 en place des alertes pour des seuils, ou pour être informé de la création d'un 
 rapport automatique.
 - L'utilisateur doit pouvoir faire des achats programmés périodiques (DCA - Dollar 
 Cost Averaging).
-- L'utilisateur doit pouvoir choisir différentes enveloppes fiscales (PEA, CTO, 
-assurance-vie).
 - L'utilisateur doit pouvoir accéder aux montants des frais d'achat.
 
 ### Compte rendu IA
@@ -144,7 +144,8 @@ fiscales de différentes banques.
 
 Les ressources dont nous disposons pour ce projet sont : 
 - Ressources humaines : trois étudiants en école d'ingénieurs.
-- Ressources techniques : outils Minet, Cluster IA.
+- Ressources techniques : inférence IA, cluster IA, machine virtuelle du service MINET.
+- Ressources techniques à identifier : accès à une (ou plusieurs) API publique(s) de données financières couvrant actions/ETF européens et taux du Livret A.
 
 L'utilisation du cluster IA pourra être envisagé dans le cas où on décide 
 d'entraîner notre propre modèle.
