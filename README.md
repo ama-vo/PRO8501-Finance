@@ -1,1 +1,4 @@
-# PRO8501-Finance
+# Taurus Capital
+
+![Logo](images/logo_taurus_capital.png)
+
