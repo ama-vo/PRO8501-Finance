@@ -34,3 +34,10 @@ réaliser.
 
 Bonne dynamique de groupe. Tout le monde est proactif et apporte ce qu'il souhaite
 au projet.
+
+> ## Vendredi 11 Septembre :
+[Groupe]
+- Réflexion sur l'architecture.
+- Réflexion sur l'authentification. 
+[Amarante] 
+- 
