@@ -19,7 +19,7 @@ de revenir en arrière.
 
 > ## Jeudi 3 Sept. - Dimanche 6 Sept. :
 
-[Groupe]
+## [Groupe]
 
 - Communication en classe : Réflexion sur le choix du projet que nous voulions 
 réaliser. 
@@ -36,18 +36,34 @@ Bonne dynamique de groupe. Tout le monde est proactif et apporte ce qu'il souhai
 au projet.
 
 > ## Vendredi 11 Septembre :
-[Groupe]
-- Réflexion sur l'architecture faite à la suite du cours que l'on a eu le jour même. Nous avons remarqué que, l'architecture sur laquelle nous avions commencé à réfléchir correspondait à une architecture en couches et que ce type restait le plus cohérent pour le projet que nous réalisons.  
-- Réflexion sur l'authentification: Nous avons envisager d'utiliser Google comme SSO, mais après discussion entre les membres du groupe il a été décidé d'utiliser le format de login : e-mail et mot de passe qui seront stocké dans une base de donnée en locale + double authentification avec code à usage unique envoyé par mail.
+## [Groupe]
+- Réflexion sur l'architecture faite à la suite du cours que l'on a eu le jour même. 
+Nous avons remarqué que, l'architecture sur laquelle nous avions commencé à 
+réfléchir correspondait à une architecture en couches et que ce type restait le plus 
+cohérent pour le projet que nous réalisons.  
+- Réflexion sur l'authentification: Nous avons envisager d'utiliser Google comme SSO, 
+mais après discussion entre les membres du groupe il a été décidé d'utiliser le 
+format de login : e-mail et mot de passe qui seront stocké dans une base de donnée
+en locale + double authentification avec code à usage unique envoyé par mail.
 
 ## [Eliott]
-- Confection d'un premier schéma très simpliste pour décrire les échanges possibles entre les différentes familles de composant:
+- Confection d'un premier schéma très simpliste pour décrire les échanges possibles
+entre les différentes familles de composant:
   <img width="466" height="655" alt="image" src="https://github.com/user-attachments/assets/27f3d75b-2076-4c69-b458-0c468ee00a6b" />
-- Confection d'une liste d'API que l'on pourrait utiliser pour récupérer les informations sur les différents marchés financier:
+- Confection d'une liste d'API que l'on pourrait utiliser pour récupérer les 
+informations sur les différents marchés financier:
   - Finnhub
   - TwelveData
   - yfinance python framework
-- Réflexion sur de nouvelles "user storie" afin d'avoir une idée plus précise des fonctionnalités à développer.
+- Réflexion sur de nouvelles "user storie" afin d'avoir une idée plus précise des
+fonctionnalités à développer.
 
-[Amarante] 
-- 
+## [Amarante] 
+- Réflexion sur l'architecture de l'application au travers d'un schéma. 
+- Nous avons prévu une application web ambitieuse (beaucoup d'options/de services).
+Questionnements sur la faisabilité du projet dans les temps impartis. L'architecture
+web faite à ce moment sera déterminante pour la suite et la bonne réalisation du 
+projet sans se casser les coudes.
+- Nécessité de faire des maquettes du site web pour définir l'emplacement de chaque
+composant dans l'optique que ça soit collaboratif et de ne pas perdre du temps à 
+refactorer.
