@@ -49,6 +49,7 @@ en locale + double authentification avec code à usage unique envoyé par mail.
 ## [Eliott]
 - Confection d'un premier schéma très simpliste pour décrire les échanges possibles
 entre les différentes familles de composant:
+
   <img width="466" height="655" alt="image" src="https://github.com/user-attachments/assets/27f3d75b-2076-4c69-b458-0c468ee00a6b" />
 - Confection d'une liste d'API que l'on pourrait utiliser pour récupérer les 
 informations sur les différents marchés financier:
