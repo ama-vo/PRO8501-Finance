@@ -67,3 +67,12 @@ projet sans se casser les coudes.
 - Nécessité de faire des maquettes du site web pour définir l'emplacement de chaque
 composant dans l'optique que ça soit collaboratif et de ne pas perdre du temps à 
 refactorer.
+
+
+## [Oscar] 
+- Conception des maquettes du design du futur site de la page d'accueil et de connexion. 
+- Élaboration et envoie d'un premier task graph avec les relations entre l'architecture, le backend et l'API financière.
+- Réflexion sur la partie responsive et le passage au format mobile. 
+- Listing des fonctionnalités du site par rapport aux produits financiers (PEA, ETF, Assurance vie ?, CTO)
+qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
+
