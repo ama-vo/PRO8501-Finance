@@ -83,7 +83,7 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 
 - Choix final des API :
   - Finhub, pour la récupération des prix des actions et ETF en temps réels. Cette API reste le choix le plus intéressant dû au faite qu'elle propose un webhook où l'on peut s'abonner à des flux qui envoie des messages à chaque mise à jour du prix d'une action. Limitations = 50 symboles 
-  - Alpha Vantage, pour la récupération des prix historique des actions par jour sur 1 an, ou par semaine sur toute l'existence de l'action demandée. Limitations = 25 requêtes par jour. 
+  - Alpha Vantage, pour la récupération des prix historique des actions par jour sur 1 an, ou par semaine sur toute l'existence de l'action demandée. Limitations = 25 requêtes par jour.
 
 - Réflexion sur les modèles de données pour la base de donnée de Django.
 
@@ -92,3 +92,9 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 - Téléchargement du framework Django.
 - Création du projet Django TaurusCapital, créations des app : authentification et simulation.
 
+## [Amarante]
+
+## [Oscar]
+
+- Conception du frontend basé sur les maquesttes de design réalisées à la séance précédente.
+- Réflexion sur le modèle entité-association du projet. 
