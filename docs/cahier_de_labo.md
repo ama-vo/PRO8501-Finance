@@ -93,6 +93,8 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 - Création du projet Django TaurusCapital, créations des app : authentification et simulation.
 
 ## [Amarante]
+- Réflexion MCD.
+<img width="694" height="568" alt="mcd" src="https://github.com/user-attachments/assets/f2c9be37-4b30-42bb-9452-7df7310b738f" />
 
 ## [Oscar]
 
