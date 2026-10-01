@@ -17,9 +17,9 @@ de revenir en arrière.
 
 # Cahier de labo
 
-> ## Jeudi 3 Sept. - Dimanche 6 Sept. :
+## Jeudi 3 Sept. - Dimanche 6 Sept. :
 
-## [Groupe]
+### [Groupe]
 
 - Communication en classe : Réflexion sur le choix du projet que nous voulions 
 réaliser. 
@@ -35,8 +35,8 @@ réaliser.
 Bonne dynamique de groupe. Tout le monde est proactif et apporte ce qu'il souhaite
 au projet.
 
-> ## Vendredi 11 Septembre :
-## [Groupe]
+## Vendredi 11 Septembre :
+### [Groupe]
 - Réflexion sur l'architecture faite à la suite du cours que l'on a eu le jour même. 
 Nous avons remarqué que, l'architecture sur laquelle nous avions commencé à 
 réfléchir correspondait à une architecture en couches et que ce type restait le plus 
@@ -46,7 +46,7 @@ mais après discussion entre les membres du groupe il a été décidé d'utilise
 format de login : e-mail et mot de passe qui seront stocké dans une base de donnée
 en locale + double authentification avec code à usage unique envoyé par mail.
 
-## [Eliott]
+### [Eliott]
 - Confection d'un premier schéma très simpliste pour décrire les échanges possibles
 entre les différentes familles de composant:
 
@@ -59,7 +59,7 @@ informations sur les différents marchés financier:
 - Réflexion sur de nouvelles "user storie" afin d'avoir une idée plus précise des
 fonctionnalités à développer.
 
-## [Amarante] 
+### [Amarante] 
 - Réflexion sur l'architecture de l'application au travers d'un schéma. 
 - Nous avons prévu une application web ambitieuse (beaucoup d'options/de services).
 Questionnements sur la faisabilité du projet dans les temps impartis. L'architecture
@@ -70,16 +70,16 @@ composant dans l'optique que ça soit collaboratif et de ne pas perdre du temps 
 refactorer.
 
 
-## [Oscar] 
+### [Oscar] 
 - Conception des maquettes du design du futur site de la page d'accueil et de connexion. 
 - Élaboration et envoie d'un premier task graph avec les relations entre l'architecture, le backend et l'API financière.
 - Réflexion sur la partie responsive et le passage au format mobile. 
 - Listing des fonctionnalités du site par rapport aux produits financiers (PEA, ETF, Assurance vie ?, CTO)
 qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 
-> ## Mercredi 16 Septembre :
+### Mercredi 16 Septembre :
 
-## [Groupe]
+### [Groupe]
 
 - Choix final des API :
   - Finhub, pour la récupération des prix des actions et ETF en temps réels. Cette API reste le choix le plus intéressant dû au faite qu'elle propose un webhook où l'on peut s'abonner à des flux qui envoie des messages à chaque mise à jour du prix d'une action. Limitations = 50 symboles 
@@ -87,8 +87,21 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 
 - Réflexion sur les modèles de données pour la base de donnée de Django.
 
-## [Eliott]
+### [Eliott]
 
 - Téléchargement du framework Django.
 - Création du projet Django TaurusCapital, créations des app : authentification et simulation.
+
+
+## Mercredi 23 Septembre :
+
+### [Groupe]
+- Nous avons échangé avec un intervenant qui a remis en questions la complexité de notre projet et avons donc décidé de faire évoluer les fonctions principales de celui-ci.
+- Décision de la fonctionnalité principale : application de gestion de patrimoine.
+- Liste des fonctions que nous avons décidé d'ajouter :
+  - suivi des actifs financiers
+  - suivi des dépenses
+  - fonctions de partage de son plan de gestion financier
+  - noter et conseiller l'utilisateur sur sa gestion de finance grâce à un LLM
+
 
