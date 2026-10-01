@@ -1,107 +1,50 @@
 ~~# Cahier des charges
 
 
-### Exercice 
-Dans le cadre du module académique PRO8501 nous devons réaliser un **Projet 
-Informatique en Python**.
+## 1. Contexte et présentation du projet
 
-Cet exercice est un exercice libre dans lequel chaque groupe peut réaliser 
-ce qu'il souhaite avec trois critères principaux :
-- **Avoir une partie visuelle** : interface web.
-- **Avoir une partie réseau** : notion de temps réel (supervision de routeurs, …).
+### Rappel du périmètre de l'exercice
+Dans le cadre du module académique PRO8501 nous devons réaliser un projet informatique dont le sujet est libre de choix.
+
+Ce dernier doit contenir 3 axes :
+- **Visuel** : interface web.
+- **Réseau** : notion de temps réel (supervision de routeurs, …).
 - **Langage** : Python doit être le langage le plus utilisé.
 
-De plus, nous pouvons implémenter des options utilisant des **modèles d'IA** dans 
-l'application, néanmoins nous ne pouvons pas en utiliser pour coder.
+Nous pouvons implémenter des options utilisant des **modèles d'IA** dans 
+l'application. Cependant, son utilisation pour le développement est formellement interdit.
 
 
-## 1. Contexte et définition du problème
+### Les français, des gestionnaires financiers hors-pair ? 
 
-Selon l’Autorité des marchés financiers (AMF), les Français sont de plus en plus 
-nombreux à s’intéresser à l’investissement en bourse. 
-En effet, d’après l’AMF ([*La Bourse séduit un nombre record d’investisseurs particuliers en 2025*](https://www.amf-france.org/fr/actualites-publications/communiques/communiques-de-lamf/la-bourse-seduit-un-nombre-record-dinvestisseurs-particuliers-en-2025)), 
-un peu plus de **1,9 million de Français** ont réalisé au moins un achat ou une 
-vente d’actions en 2025, soit une hausse de **21 % par rapport à 2024**.
+Historiquement, les français ont une épargne financière relativement élevée, principalement placée sur des actifs non-risqués tel que les livrets bancaires réglementés ou les contrats d'assurance-vie. Une importante partie du patrimoine des ménages se concentre sur l'immobilier. Alors même que l'accès à la propriété est de plus en plus difficile. Comme l'atteste BFM Finance, le nombre de ménages accédants a reculé de 21,4 % à 19,8% de 2020 à 2026. En revanche, le taux de français propriétaires reste quasi-stable depuis 2014, culminant à 57,8%. Signifiant qu'on constate de moins en moins de primo-propriétaires, mais ceux qui le sont déjà possède davantage de part du parc immobilier en France. Cela est dû notamment à un prix de l'immobilier, des taux d'interêts plus importants, phénomène combiné à un revenu moyen moyen qui n'a pas suivi cette augmentation.
 
-Les ETF constituent également un produit d’investissement de plus en plus populaire 
-auprès des ménages français. 
-En 2025, environ **1,1 million d’investisseurs** ont investi dans des fonds indiciels, 
-contre **223 000 en 2020**. 
-Le nombre d’investisseurs en ETF a ainsi été multiplié par
-cinq en cinq ans.
+Face à cela, de plus en plus de Français se tournent vers l'investissement boursier. En effet, selon l’Autorité des marchés financiers (AMF), les Français sont de plus en plus nombreux à s’intéresser à l’investissement en bourse. 
+En effet, d’après l’AMF ([*La Bourse séduit un nombre record d’investisseurs particuliers en 2025*](https://www.amffrance.org/fr/actualites-publications/communiques/communiques-de-lamf/la-bourse-seduit-un-nombre-record-dinvestisseurs-particuliers-en-2025)), un peu plus de **1,9 million de Français** ont réalisé au moins un achat ou une vente d’actions en 2025, soit une hausse de **21 % par rapport à 2024**.
 
-Cette démocratisation de l’investissement s’accompagne également d’un 
-**rajeunissement des investisseurs**. 
-Toujours selon l’AMF, l’âge moyen des investisseurs en ETF en France est passé de 
-**61,1 ans en 2019 à 41,3 ans en 2024**. 
-Chez les 25–35 ans, **45 % des investisseurs actifs** avaient acheté ou vendu 
-des ETF au premier semestre 2024, contre seulement **11,7 % en 2019**. 
-Cette tendance s’est poursuivie en 2025, avec un âge moyen des investisseurs en 
-ETF qui est désormais descendu à 38 ans.
+Plus globalement, entre 2023 et 2025, **1,6 million de nouveaux investisseurs** ont rejoint les marchés financiers, aussi bien sur les actions que sur les ETF (fonds indiciels). 
 
-Plus globalement, entre 2023 et 2025, **1,6 million de nouveaux investisseurs** 
-ont rejoint les marchés financiers, aussi bien sur les actions que sur les ETF. 
-Pour la première fois depuis le 1er janvier 2018, les nouveaux investisseurs ont 
-également représenté la catégorie ayant réalisé le plus grand nombre d’ordres d’achat.
+Ces données témoignent donc d’un **intérêt croissant pour les marchés financiers**, particulièrement auprès des jeunes générations. 
 
-Ces données témoignent donc d’un **intérêt croissant pour les marchés financiers**, 
-particulièrement auprès des jeunes générations. 
-Cependant, pour un investisseur débutant, l’accès aux marchés financiers peut 
-rester complexe. 
-La diversité des produits disponibles, le vocabulaire financier, le fonctionnement 
-des marchés et le nombre important d'information en ligne constituent une barrière de difficulté pouvant freiner l'apprentissage de ce dernier.
-
-Le but de notre projet est donc de répondre à cette problématique :
-
-**Comment permettre aux nouveaux investisseurs, notamment aux jeunes générations, de découvrir les marchés financiers, de comprendre les produits d’investissement et d’expérimenter différentes stratégies sans s’exposer à un risque financier réel ?**
-
-C’est donc dans ce contexte d'adoption progressive par des particuliers de plus en plus jeunes
-que s’inscrit notre projet. 
-Nous souhaitons, par conséquent, mettre en place une **plateforme fictive d’investissement et d’éducation financière**, 
-sous forme de site web, permettant aux utilisateurs de se familiariser avec les mécanismes des marchés 
-financiers dans un environnement sans risque réel.
+L'investissement boursier implique généralement d'une bonne hygiène et littérature financière. Cependant, l'accès à cette dernière reste très inégale. 
 
 
+## 2.	Taurus Capital 
 
-## 2.	Objectifs
+Le but de notre projet est donc de proposer un outils de gestion de patrimoine afin de le rendre accessible au plus grand nombre. 
 
-Nous nommerons **Taurus Capital**, cette plateforme web qui sera un 
-**Conseiller et un Simulateur d'investissement financier**. 
+Pour cela, nous proposons le développement d'une application web qui est basée sur deux noyaux à valider qui serviront de KPI de mesure de notre réussite. 
+Le premier point sera de centraliser les données de patrimoine tel que son patrimoine immobilier, l'épargne salariale, les actifs financiers, les différents livrets, le patrimoine matériel ou les dettes, pour en citer quelques-uns. 
 
-Le but de ce simulateur est d'observer les rendements financiers effectifs ou
-potentiels sur des marchés boursiers.
-Ainsi, l'utilisateur peut acheter de manière factice des parts de fonds financiers
-à une date antérieure (par exemple en janvier 2015) ou bien passer des ordres
-factices en direct et voir le cours de son _achat_ fluctuer.
-Cela permettra aux utilisateurs d'expérimenter différentes stratégies sans éprouver
-de pertes, ainsi que de comprendre le fonctionnement des marchés boursiers.
+Le deuxième point est de proposer également en temps réel la mise à jour du portefeuille d'investissement et de pouvoir proposer le partage entre utilisateurs de leurs portefeuilles. 
 
-En parallèle de ce mécanisme qui permet à l'utilisateur de s'acculturer aux marchés
-financiers, différents rapports générés à l'aide de l'IA seront disponibles pour 
-conseiller et avertir l'utilisateur des informations capitales en direct (cela 
-sur des fonds précis ou bien sur le marché en général). Une section pédagogique 
-sera aussi accessible pour que l'utilisateur puisse apprendre de nouvelles choses
-sur les marchés financiers et de tout ce qui est sous-jacent. 
 
-## 3.	Périmètre du projet
-
-La finance étant un domaine vaste, nous nous concentrerons dans ce premier temps
-sur : 
-- l'achat factice de fonds à une date ultérieure ou actuelle.
-- la création d'analyses du marché ou de fonds précis grâce à l'IA.
-- les produits proposé seront essentiellement européen ou alors accessible via du swap.  
-
-Dans un second temps, nous pourrions, bien que cela ne soit pas l'objectif de
-notre projet à ce stade : 
-- créer un simulateur itératif sur _d'anciennes données_ avec la méthode de
-Monte Carlo.
-
-## 4.	Description fonctionnelle des besoins
+## 3.	Description fonctionnelle des besoins
 
 ### Profil Investisseur
-- L'utilisateur doit pouvoir se connecter à un compte personnel sécurisé.
-- L'utilisateur doit pouvoir compléter de nombreuses informations sur son 
-profil et ses préférences financières. 
+- L'utilisateur doit pouvoir se connecter à un compte personnel sécurisé. Un système d'authentification Django sera utilisé.
+- Complétion des informations sur son son patrimoine et sa stratégie d'investissement.
+- Le partage de sa stratégie à autrui.
 
 ### Investissements financiers factices
 
@@ -117,11 +60,12 @@ employer pour son épargne.
 - L'utilisateur peut être notifié pour des ordres d'achat, s'il décide de mettre
 en place des alertes pour des seuils, ou pour être informé de la création d'un 
 rapport automatique.
-- L'utilisateur doit pouvoir faire des achats programmés périodiques (DCA - Dollar 
+- L'utilisateur doit pouvoir faire des achats programmés périodiques (DCA ou Dollar 
 Cost Averaging).
 - L'utilisateur doit pouvoir accéder aux montants des frais d'achat.
 
 ### Compte rendu IA
+- Système de scoring par rapport à sa stratégie d'investissement basé sur la diversification, et la cohérence financière.
 - L'utilisateur doit pouvoir accéder une analyse IA détailée de l'ensemble des
 fonds d'investissements présents, cela en temps réel lors de sa requête.
 - L'utilisateur doit pouvoir créer des rapports se basant sur des nouvelles 
@@ -140,9 +84,7 @@ informationnelles.
 - L'utilisateur doit pouvoir accéder à un chat dédié pour comparer les enveloppes
 fiscales de différentes banques. 
   
-## 5.	Enveloppe budgétaire et ressources
-
-Les ressources dont nous disposons pour ce projet sont : 
+## 4. Ressources disponibles
 - Ressources humaines : trois étudiants en école d'ingénieurs.
 - Ressources techniques : inférence IA, cluster IA, machine virtuelle du service MINET.
 - Ressources techniques à identifier : accès à une (ou plusieurs) API publique(s) de données financières couvrant actions/ETF européens et taux du Livret A.
@@ -150,9 +92,7 @@ Les ressources dont nous disposons pour ce projet sont :
 L'utilisation du cluster IA pourra être envisagé dans le cas où on décide 
 d'entraîner notre propre modèle.
 
-Ce projet étant académique, nous ne possédons pas de ressources pécuniaires.
 
-## 6.	Délais
+## 5.	Délais
 
-Le livrable est à rendre pour le 9 décembre 2026. Le projet devra être finalisé 
-le 5 décembre 2026.~~
+Le livrable est à rendre pour le 9 décembre 2026. Le projet devra être idéalement finalisé le 5 décembre 2026.~~
