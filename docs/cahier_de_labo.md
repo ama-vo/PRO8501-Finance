@@ -108,7 +108,10 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 ## Jeudi 1 octobre :
 
 ### [Groupe]
-
+- Récupération des données boursiers
+- Réécriture du cahier des charges, du readme et du taskgraph
+- La prochaine étape sera d'implémenter les bdd sur postegresql
+  
 ### [Oscar] 
 - Teste de la récupération des courbes boursiers avec la bibliothèque yfinance et réussite
 - On a pas de limite apparente de requête qui pourrait nous bloquer à une fréquence d'utilisation normale
