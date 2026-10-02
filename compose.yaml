@@ -1,7 +1,7 @@
 services:
-  api:
+  web-app:
     build: .
-    container_name: taurus-api
+    container_name: taurus-web-app
     ports:
       - "8000:8000"
     volumes:
