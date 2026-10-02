@@ -1,0 +1,27 @@
+services:
+  api:
+    build: .
+    container_name: taurus-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/taurus
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    container_name: taurus-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: taurus
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
