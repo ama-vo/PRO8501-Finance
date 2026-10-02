@@ -111,12 +111,17 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 - Récupération des données boursiers
 - Réécriture du cahier des charges, du readme et du taskgraph
 - La prochaine étape sera d'implémenter les bdd sur postegresql
-  
+- Identification d'un minimum requis dans les fonctionnalités principal 
+ 
 ### [Oscar] 
 - Teste de la récupération des courbes boursiers avec la bibliothèque yfinance et réussite
 - On a pas de limite apparente de requête qui pourrait nous bloquer à une fréquence d'utilisation normale
 - Possibilité de faire une requête de plusieurs ticker par requête
 - Réécriture du cahier des charges par rapport à la nouvelle direction du passage à un outils de gestion de patrimoine
+
+### [Eliott]
+- Mise à jour du task graph du projet
+- Rédaction du Dockerfile
 
 
 
