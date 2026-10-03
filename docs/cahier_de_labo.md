@@ -123,6 +123,12 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 - Mise à jour du task graph du projet
 - Rédaction du Dockerfile
 
+### [Amarante]
+- MAJ du README.
+- Réflexion sur la nouvelle BDD.
+- Question sur les requêtes d’API.
+
+
 
 
 
