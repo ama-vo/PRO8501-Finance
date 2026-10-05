@@ -1,5 +1,14 @@
 # Taurus Capital
 
+Taurus Capital est un outil de **gestion de patrimoine**.
+Il permettra de : 
+- Centraliser les données liées à son patrimoine sur l'ensemble de ses placements et comptes.
+- Analyser et effectuer un suivi de son patrimoine.
+- Donner des conseils en gestion de patrimoine.
+- Accéder aux différents marchés boursiers ainsi que de leurs actifs.
+
+# Installation
+
 Pour l'instant il faudra lancer l'application **en local** via un **Docker**. 
 
 ### 1. Installer Docker
