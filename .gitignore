@@ -1,0 +1,8 @@
+# Removing all this files from the git add . 
+
+.DS_Store
+__pycache__/
+.venv/
+.env
+.Rhistory
+.idea/
