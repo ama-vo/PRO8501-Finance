@@ -3,7 +3,7 @@ services:
     build: .
     container_name: taurus-web-app
     ports:
-      - "8080:8080"
+      - "8080:8000"
     volumes:
       - ./src:/app/src
     environment:
@@ -12,7 +12,7 @@ services:
       - db
 
   db:
-    image: postgres:16
+    image: postgres:latest
     container_name: taurus-db
     environment:
       POSTGRES_USER: user

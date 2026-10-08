@@ -1,15 +1,20 @@
 FROM python:3.12-slim
 
-LABEL authors="joliott"
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir django yfinance
+COPY requirements.txt /app/
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-COPY ./TaurusCapital /app
+COPY ./TaurusCapital /app/
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "manage.py", "makemigration"]
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "TaurusCapital.wsgi:application"]
 
 
