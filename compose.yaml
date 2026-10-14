@@ -1,36 +1,37 @@
 services:
-  web-app:
-    build: .
-    container_name: taurus-web
-    ports:
-      - "8080:8000"
-    volumes:
-      - ./src:/app
-    environment:
-      DATABASE_URL: postgresql://user:password@db:5432/taurus
-    depends_on:
-      db: 
-        condition: service_healthy
-
   db:
-    image: postgres:16
+    image: postgres:16-alpine
     container_name: taurus-db
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: taurus
+      POSTGRES_USER: ${USERNAME_DB}
+      POSTGRES_PASSWORD: ${PASSWORD_DB}
+      POSTGRES_DB: ${NAME_DB}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck : 
-	test: ["CMD-SHELL","pg_isready -U user -d taurus"]
-	interval: 5s
-	timeout: 5s
-	retries: 5
-      
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${USERNAME_DB} -d ${NAME_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  web-app: # Déplacé ici, au même niveau que "db"
+    build: .
+    container_name: taurus-web-app
+    ports:
+      - "8080:8000"
+    volumes:
+      - .:/app
+    environment:
+      DB_NAME: ${NAME_DB}
+      DB_USER: ${USERNAME_DB}
+      DB_PASSWORD: ${PASSWORD_DB}
+      DB_HOST: db
+      DB_PORT: 5432
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   postgres_data:
-  
-  

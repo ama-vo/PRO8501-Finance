@@ -5,17 +5,14 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt /app/
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY ./src /app
-
-RUN chmod +x /app/entrypoint.sh
+RUN pip install django psycopg psycopg2 gunicorn
 
 EXPOSE 8000
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+COPY ./TaurisCapital /app/
 
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
+ENTRYPOINT [ "./entrypoint.sh" ]
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "TaurisCapital.wsgi:application"]
+
 
