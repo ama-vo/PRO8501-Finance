@@ -9,10 +9,10 @@ RUN pip install django psycopg psycopg2 gunicorn
 
 EXPOSE 8000
 
-COPY ./TaurisCapital /app/
+COPY ./TaurusCapital /app/
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "TaurisCapital.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "TaurusCapital.wsgi:application"]
 
 
