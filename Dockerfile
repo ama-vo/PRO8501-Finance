@@ -9,7 +9,7 @@ RUN pip install django psycopg psycopg2 gunicorn
 
 EXPOSE 8000
 
-COPY ./TaurusCapital /app/
+COPY ./src /app/
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 
