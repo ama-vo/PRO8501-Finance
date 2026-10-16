@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS v5.3.8 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+
+    <body class="body">
+        <header>
+           <nav class="navbar navbar-expand-sm navbar-dark py-1" style="background-color: #000000;">
+                <div class="container-fluid px-3"> <!-- Utilisation de container-fluid pour prendre toute la largeur -->
+                    
+                    <!-- L'élément navbar-brand avec le logo complet -->
+                    <a class="navbar-brand py-0 me-4" href="#">
+                        <img src="{% static 'logo_taurus_capital.png' %}" height="40"  class="d-inline-block align-middle" alt="Taurus Capital Logo">
+                    </a>
+
+                    <!-- Le bouton burger pour mobile (inchangé) -->
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <!-- Les liens de navigation alignés à gauche (me-auto) avec des marges ajustées (my-0) -->
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %} py-1" href="{% url 'index' %}" aria-current="page">Home<span class="visually-hidden">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %} py-1" href="#">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'history' %}active{% endif %} py-1" href="#">History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %} py-1" href="{% url 'index' %}">Stocks</a>
+                            </li>
+                           
+                        </ul>
+                        
+                        <!-- Le formulaire de recherche aligné à droite -->
+                        <ul class="navbar-nav  my-0 gap-3">
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %} " href="{% url 'login' %}">
+                                     Log in
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %}" href="{% url 'signup' %}">
+                                  Sign Up
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav> 
+        </header>
+        <main class="container">
+        {% block content %}
+
+
+        {% endblock %}
+        
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

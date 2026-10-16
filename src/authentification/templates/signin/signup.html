@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+   
+        <section class="card bg-black text-white rounded-5" style="max-width: 400px">
+             <form method="POST">
+                {% csrf_token %}
+            <div class="card-block">
+                
+                <h3 class="card-title text-center mt-4">Sign up</h3>
+                {% if messages %}
+                {% for message in messages %}
+                <div
+                    class="alert alert-primary alert-dismissible fade show bg-danger text-light"
+                    role="alert"
+                >
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"
+                    ></button>
+                     {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %} 
+                
+                <script>
+                    var alertList = document.querySelectorAll(".alert");
+                    alertList.forEach(function (alert) {
+                        new bootstrap.Alert(alert);
+                    });
+                </script>
+                
+                <div class="mb-4">
+                    <label for="" class="form-label">Username :</label>
+                    <input
+                        style="max-width: 300px justify-content-center"
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username"
+                        placeholder="username"
+                    />
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label">First name:</label>
+                    <input
+                        style="max-width: 300px justify-content-center"
+                        type="text"
+                        class="form-control"
+                        name="firstname"
+                        id="firstname"
+                        placeholder="firstname"
+                    />
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label">Last name:</label>
+                    <input
+                        style="max-width: 300px justify-content-center"
+                        type="text"
+                        class="form-control"
+                        name="lastname"
+                        id="lastname"
+                        placeholder="lastname"
+                    />
+                </div>
+
+                <div class="mb-4">
+                    <label for="" class="form-label">Email :</label>
+                    <input
+                        style="max-width: 300px justify-content-center"
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                        aria-describedby="emailHelpId"
+                        placeholder="abc@mail.com"
+                    />
+                </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpBlock">
+                        <div id="passwordHelpBlock" class="form-text text-light">
+                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="confirmedpassword" class="form-label">Confirmed password :</label>
+                        <input type="password" id="confirmedpassword" name="confirmedpassword" class="form-control" aria-describedby="passwordHelpBlock">
+                        
+                    </div>
+
+                    
+                    <div class="d-flex justify-content-center mb-4 ">
+                        <button class="btn btn-light" type="submit">
+                            submit
+                        </button>
+                    </div>
+            </div>
+            
+          </form>  
+        </section>
+    
+
+</div>
+
+
+{% endblock %}
