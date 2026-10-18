@@ -51,8 +51,7 @@ L'investissement boursier implique généralement d'une bonne hygiène et litté
   
 ## 3. Ressources disponibles
 - Ressources humaines : trois étudiants en école d'ingénieurs.
-- Ressources techniques : inférence IA, cluster IA, machine virtuelle du service MINET.
-- Ressources techniques à identifier : accès à une (ou plusieurs) API publique(s) de données financières couvrant actions/ETF européens et taux du Livret A.
+- Ressources techniques : utilisation du framework Django pour la partie développement web avec une base de données PostgreSQL, conteneurisation du projet sous Docker, et utilisation de la bibliothèque Python yfinance pour récupérer des informations sur différents marchés financiers en provenance de Yahoo Finance.
 
 L'utilisation du cluster IA pourra être envisagé dans le cas où on décide 
 d'entraîner notre propre modèle.
