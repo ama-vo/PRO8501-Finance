@@ -29,70 +29,74 @@ Ces données témoignent donc d’un **intérêt croissant pour les marchés fin
 L'investissement boursier implique généralement d'une bonne hygiène et littérature financière. Cependant, l'accès à cette dernière reste très inégale. 
 
 
-## 2.	Taurus Capital 
+## 2.	Fonctionnalités 
 
-Le but de notre projet est donc de proposer un outils de gestion de patrimoine afin de le rendre accessible au plus grand nombre. 
+### MVP 
+- Suivi du portefeuille de patrimoine en 360 des actifs financiers de l'utilisateur (PEA, Livret, Immobilier, Héritage etc...) 
+- Historique de l'évolution du patrimoine de l'utilisateur 
+- Gestion des dépenses de la vie courante et revenu 
+- L'utilisateur doit pouvoir se connecter à un compte personnel sécurisé avec un système d'authentification Django sera utilisé.
+- Outils d'audit interne avec scoring en fonction des objectifs FIRE (Financial Independence, Retire Early)
 
-Pour cela, nous proposons le développement d'une application web qui est basée sur deux noyaux à valider qui serviront de KPI de mesure de notre réussite. 
-Le premier point sera de centraliser les données de patrimoine tel que son patrimoine immobilier, l'épargne salariale, les actifs financiers, les différents livrets, le patrimoine matériel ou les dettes, pour en citer quelques-uns. 
-
-Le deuxième point est de proposer également en temps réel la mise à jour du portefeuille d'investissement et de pouvoir proposer le partage entre utilisateurs de leurs portefeuilles. 
-
-
-## 3.	Description fonctionnelle des besoins
-
-### Profil Investisseur
-- L'utilisateur doit pouvoir se connecter à un compte personnel sécurisé. Un système d'authentification Django sera utilisé.
-- Complétion des informations sur son son patrimoine et sa stratégie d'investissement.
-- Le partage de sa stratégie à autrui.
-
-### Investissements financiers factices
-
-- L'utilisateur doit pouvoir faire des ordres d'achat factice (ordre au marché
-ou à cours limité).
-- L'utilisateur doit pouvoir simuler des plans d'investissement dans le passé.
-- L'utilisateur doit pouvoir simuler des plans d'investissement sur le marché 
-actuel, qui évolue en temps réel avec celui-ci.
-- L'utilisateur doit pouvoir faire le choix entre 4 types de comptes simulés (PEA, 
-Livret A, Compte titre, assurance vie) afin d'étudier différentes stratégies qu'il pourrait 
-employer pour son épargne.
-- L'utilisateur pourra décider des frais de courtage si il simule un comptes de type PEA ou Compte-Titre.
-- L'utilisateur peut être notifié pour des ordres d'achat, s'il décide de mettre
-en place des alertes pour des seuils, ou pour être informé de la création d'un 
-rapport automatique.
-- L'utilisateur doit pouvoir faire des achats programmés périodiques (DCA ou Dollar 
-Cost Averaging).
-- L'utilisateur doit pouvoir accéder aux montants des frais d'achat.
-
-### Compte rendu IA
-- Système de scoring par rapport à sa stratégie d'investissement basé sur la diversification, et la cohérence financière.
-- L'utilisateur doit pouvoir accéder une analyse IA détailée de l'ensemble des
-fonds d'investissements présents, cela en temps réel lors de sa requête.
-- L'utilisateur doit pouvoir créer des rapports se basant sur des nouvelles 
-impactant les différents marchés financiers, qui lui indiquent au moins 3 actions 
-risquant d'être influencées par ces nouvelles.
-- L'utilisateur doit pouvoir accéder à une interface lui permettant de 
-s'informer des différences de modalités entre les différentes enveloppes 
-de différents courtiers.
-
-### Contenus pédagogiques
-- L'utilisateur doit pouvoir accéder à une section dédiée à l'accompagner 
-dans la compréhension des différents produits financiers, du fonctionnement des
-marchés et des principaux indicateurs utilisés pour évaluer un investissement. 
-Cela pourra se présenter sous la forme d'articles ou de fiches de synthèse 
-informationnelles.
-- L'utilisateur doit pouvoir accéder à un chat dédié pour comparer les enveloppes
-fiscales de différentes banques. 
   
-## 4. Ressources disponibles
+### Lot 1 
+- Création de catégories personnelles dans la gestion des dépenses et revenu (e.g. Voyage Italie)
+- Projection linéaire du plan d'investissement de l'utilisateur avec concordance des objectifs spécifiés 
+- Le partage de sa stratégie à d'autres utilisateurs
+
+
+### Lot 2
+- Rapport des actualités par IA et conseils
+- Partage de stratégie à d'autres utilisateurs
+  
+## 3. Ressources disponibles
 - Ressources humaines : trois étudiants en école d'ingénieurs.
-- Ressources techniques : inférence IA, cluster IA, machine virtuelle du service MINET.
-- Ressources techniques à identifier : accès à une (ou plusieurs) API publique(s) de données financières couvrant actions/ETF européens et taux du Livret A.
+- Ressources techniques : utilisation du framework Django pour la partie développement web avec une base de données PostgreSQL, conteneurisation du projet sous Docker, et utilisation de la bibliothèque Python yfinance pour récupérer des informations sur différents marchés financiers en provenance de Yahoo Finance.
 
 L'utilisation du cluster IA pourra être envisagé dans le cas où on décide 
 d'entraîner notre propre modèle.
 
 
-## 5.	Délais
+## 4.	Délais
 
-Le livrable est à rendre pour le 9 décembre 2026. Le projet devra être idéalement finalisé le 5 décembre 2026.~~
+Le livrable est à rendre pour le 9 décembre 2026. Le projet devra être idéalement finalisé le 5 décembre 2026.
+
+```mermaid
+gantt
+    title Planning du projet PRO8501 - Finance
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d/%m
+
+    section Conception & Init.
+    Rédaction du CdC (Équipe)             :done, 2026-09-03, 2026-09-18
+    Design préliminaire (Oscar, Amarante) :done, 2026-09-06, 2026-09-12
+    MCD (Amarante)                        :active, 2026-09-16, 2026-10-20
+
+    section Socle & Docker
+    Tests API yfinance (Oscar)            :done, 2026-10-02, 2026-10-08
+    Conteneurisation (Eliott, Oscar)      :done, 2026-10-01, 2026-10-15
+    Squelette Django (Eliott)             :done, 2026-10-16, 1d
+
+    section Dév. du MVP
+    Authentification (Eliott)             :done, 2026-10-15, 2026-10-16
+    Modélisation ORM & BDD (Amarante)     :active, 2026-10-18, 2026-10-30
+    Intégration yfinance (Oscar)          :active, 2026-10-15, 2026-11-10
+    Temps Réel HTMX (Amarante, Eliott)    :2026-11-04, 2026-11-15
+    Scoring FIRE (Amarante)               :2026-11-15, 2026-11-22
+    Dépenses quotidiennes & Salaires (Oscar):2026-11-18, 2026-11-23
+    Livret A, Stocks & Crypto (Eliott)    :2026-11-20, 2026-11-26
+
+    section Fonctionnalités Lot 1
+    Projection linéaire (Amarante)        :2026-11-22, 2026-11-27
+    Catégories personnalisées (Oscar)     :2026-11-23, 2026-11-27
+    Partage de stratégie (Eliott)         :2026-11-26, 2026-11-29
+    Invest. Immo & Mobilier (Oscar)       :2026-11-27, 2026-11-30
+    Gestion des crédits (Amarante)        :2026-11-27, 2026-11-30
+
+    section Rendu & Soutenance
+    Nettoyage et tests (Équipe)           :2026-11-30, 2026-12-04
+    README final (Eliott)                 :2026-12-01, 2026-12-06
+    Slides et démo (Oscar, Amarante)      :2026-12-03, 2026-12-07
+    GEL DU CODE SUR GIT (Équipe)          :milestone, 2026-12-08, 1d
+    SOUTENANCE (Équipe)                   :milestone, 2026-12-09, 1d
+```

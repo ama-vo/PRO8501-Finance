@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+    <section class="card bg-black text-white rounded-5" style="max-width: 400px">
+        <form method="POST">
+             {% csrf_token %}
+        <div class="card-block ">
+            
+            <h3 class="card-title text-center mt-4">Login</h3>
+              {% if messages %}
+                {% for message in messages %}
+                <div
+                    class="alert alert-primary alert-dismissible fade show bg-danger text-light"
+                    role="alert"
+                >
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"
+                    ></button>
+                     {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %} 
+                
+            <div class="mb-4">
+                <label for="" class="form-label">Username :</label>
+                <input
+                    style="max-width: 300px justify-content-center"
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    id="username"
+                    placeholder="username"
+                />
+            </div>
+            <div class="mb-4">
+                    <label for="password" class="form-label">Password :</label>
+                    <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpBlock" placeholder="**************">   
+            </div>
+            
+            <div class="d-flex justify-content-center mb-4 ">
+                <button class="btn btn-light" type="submit">
+                    submit
+                </button>
+            </div>
+
+        </div>
+        </form>
+        
+    </section>
+
+</div>
+
+
+
+{% endblock %}
