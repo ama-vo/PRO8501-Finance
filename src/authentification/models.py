@@ -14,20 +14,20 @@ class FinanceUser(AbstractUser):
   # nom = models.CharField(max_length=100)
   # prenom = models.CharField(max_length=100)
 
-  pays = models.CharField(max_length=100, default="France")
-  adresse = models.CharField(max_length=255)
-  telephone = models.CharField(max_length=20)
+  country = models.CharField(max_length=100, default="France")
+  address = models.CharField(max_length=255)
+  phone = models.CharField(max_length=20)
   riskProfile = { 1, 2, 3, 4, 5 } 
 
 
 class Emplacement(models.Model):
     
-  nom = models.CharField(max_length=100)
-  pays = models.CharField(max_length=100, default="France")
+  name = models.CharField(max_length=100)
+  country = models.CharField(max_length=100, default="France")
   type = models.CharField(max_length=100, choices=[
-    ("Banque"),
-    ("Courtier"),
-    ("Assureurs"),
-    ("Sociétés de gestion"),
-    ("Plateformes FinTech"),
+    ("Banque", "Bank"),
+    ("Courtier", "Broker"),
+    ("Assureurs", "Insurers"),
+    ("Sociétés de gestion", "Asset Management Companies"),
+    ("Plateformes FinTech", "FinTech Platforms"),
   ])
