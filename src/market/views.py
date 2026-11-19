@@ -1,8 +1,12 @@
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
+from django.shortcuts import render
 
 from .services import get_history
 
+
+def stocks(request):
+    return render(request, "market/stocks.html")
 
 @require_GET
 def stock_history(request, symbol):
