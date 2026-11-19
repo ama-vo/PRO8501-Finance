@@ -19,7 +19,7 @@
     <body class="body">
         <header>
            <nav class="navbar navbar-expand-sm navbar-dark py-1" style="background-color: #000000;">
-                <div class="container-fluid px-3"> <!-- Utilisation de container-fluid pour prendre toute la largeur -->
+                <div class="container-fluid px-3">
                     
                     <a class="navbar-brand py-0 me-4" href="#">
                         <img src="{% static 'logo_taurus_capital.png' %}" height="40"  class="d-inline-block align-middle" alt="Taurus Capital Logo">
@@ -63,7 +63,7 @@
                 </div>
             </nav> 
         </header>
-        <main class="container">
+	<main class="{% block main_class %}container{% endblock %}">
         {% block content %}
 
 
