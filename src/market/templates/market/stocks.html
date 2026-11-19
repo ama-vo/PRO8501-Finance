@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block main_class %}container-fluid px-4{% endblock %}
+
 {% block content %}
 <div class="py-4 text-white">
 
@@ -34,8 +36,8 @@
 
         <div id="stock-error" class="alert alert-danger d-none" role="alert"></div>
 
-        <!-- Hauteur fixe : Chart.js adapte le canvas à ce conteneur -->
-        <div style="position: relative; height: 420px;">
+        <!-- Hauteur liée à la fenêtre (100vh) : Chart.js adapte le canvas à ce conteneur -->
+        <div style="position: relative; height: calc(100vh - 280px); min-height: 360px;">
             <canvas id="stock-chart"></canvas>
         </div>
     </section>
