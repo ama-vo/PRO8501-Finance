@@ -27,4 +27,3 @@ class Institution(models.Model):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=100, default="France")
     type = models.CharField(max_length=100, choices=TYPE_CHOICES)
-

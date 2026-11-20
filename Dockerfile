@@ -12,6 +12,9 @@ EXPOSE 8000
 
 COPY ./src /app/
 
+COPY ./entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 ENTRYPOINT [ "./entrypoint.sh" ]
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "taurus_capital.wsgi:application"]
