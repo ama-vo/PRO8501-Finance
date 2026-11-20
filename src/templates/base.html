@@ -19,9 +19,9 @@
     <body class="body">
         <header>
            <nav class="navbar navbar-expand-sm navbar-dark py-1" style="background-color: #000000;">
-                <div class="container-fluid px-3"> <!-- Utilisation de container-fluid pour prendre toute la largeur -->
+                <div class="container-fluid px-3">
                     
-                    <a class="navbar-brand py-0 me-4" href="#">
+                    <a class="navbar-brand py-0 me-4" href="{% url 'index' %}">
                         <img src="{% static 'logo_taurus_capital.png' %}" height="40"  class="d-inline-block align-middle" alt="Taurus Capital Logo">
                     </a>
 
@@ -31,9 +31,6 @@
                     
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %} py-1" href="{% url 'index' %}" aria-current="page">Home<span class="visually-hidden">(current)</span></a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %} py-1" href="#">Dashboard</a>
                             </li>
@@ -63,7 +60,7 @@
                 </div>
             </nav> 
         </header>
-        <main class="container">
+	<main class="{% block main_class %}container{% endblock %}">
         {% block content %}
         
 
@@ -82,3 +79,4 @@
         {% block extra_js %}{% endblock %}
     </body>
 </html>
+
