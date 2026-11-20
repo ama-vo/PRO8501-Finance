@@ -4,13 +4,13 @@ from django.db import models
 class FinanceUser(AbstractUser):
     # Ajoutez vos champs personnalisés ici
   
-  # Django crée automatiquement l'id. 
-  # id = models.AutoField(primary_key=True)
-  
-  # Déjà présent dans AbstractUser. 
-  # mail = models.EmailField()
-  # nom = models.CharField(max_length=100)
-  # prenom = models.CharField(max_length=100)
+    # Django crée automatiquement l'id. 
+    # id = models.AutoField(primary_key=True)
+    
+    # Déjà présent dans AbstractUser. 
+    # mail = models.EmailField()
+    # nom = models.CharField(max_length=100)
+    # prenom = models.CharField(max_length=100)
 
     country = models.CharField(max_length=100, default="France")
     address = models.CharField(max_length=255)
