@@ -21,13 +21,13 @@ class FinanceUser(AbstractUser):
 
 
 class Emplacement(models.Model):
-    
+
+  class Emplacement_Type(models.TextChoices):
+         BA = "Banque"
+         CO = "Courtier"
+         AS = "Assureurs"
+         SG = "Société de gestion"
+         PF = "Plateforme de Fintech"
   nom = models.CharField(max_length=100)
   pays = models.CharField(max_length=100, default="France")
-  type = models.CharField(max_length=100, choices=[
-    ("Banque"),
-    ("Courtier"),
-    ("Assureurs"),
-    ("Sociétés de gestion"),
-    ("Plateformes FinTech"),
-  ])
+  type = models.CharField(max_length=100, choices=Emplacement_Type)

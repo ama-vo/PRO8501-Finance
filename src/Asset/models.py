@@ -37,7 +37,7 @@ class CurrentAccount(Asset):
 
     interest_rate = models.IntegerField(blank=True, null=True)
 
-class SavingAccount(Asset)
+class SavingAccount(Asset):
 
     is_regulate = models.BooleanField()
     ceilling = models.IntegerField()
@@ -65,5 +65,5 @@ class Security(Asset):
         BO = 'Bond' 
     ticker_code = models.CharField(max_length=12)
     shares_count = models.IntegerField()
-    type = models.CharField(choices=Securities_Type)
-    taxwrapper = models.ForeignKey(TaxWrapper,on_delete=models.CASCADE, related_name='security' )
+    security_type = models.CharField(choices=Securities_Type)
+    taxwrapper_link = models.ForeignKey(TaxWrapper,on_delete=models.CASCADE, related_name='security' )
