@@ -67,3 +67,25 @@ class Security(Asset):
     shares_count = models.IntegerField()
     security_type = models.CharField(choices=Securities_Type)
     taxwrapper_link = models.ForeignKey(TaxWrapper,on_delete=models.CASCADE, related_name='security' )
+
+
+class PrivateEquity(Asset):
+  
+    codeLEI = models.CharFiel(max_length=20)
+    numberFundUnit = models.FloatField()
+
+class Cryptocurrency(Asset):
+
+    codeSlugCoinGecko = models.IntegerField(max_length=6)
+    numberFundUnit = models.FloatField()
+
+class Furniture(Asset): 
+
+    BuyingDate = models.DateField()
+    address = models.CharField(max_length=255, null=True)
+    sellingPrice = models.FloatField(null=True)
+
+class RealEstate(Asset):
+
+    address = models.CharField(max_length=255)
+    sellingPrice = models.FloatField(null=True)

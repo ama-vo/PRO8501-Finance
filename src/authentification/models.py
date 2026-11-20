@@ -14,20 +14,19 @@ class FinanceUser(AbstractUser):
   # nom = models.CharField(max_length=100)
   # prenom = models.CharField(max_length=100)
 
-  pays = models.CharField(max_length=100, default="France")
-  adresse = models.CharField(max_length=255)
-  telephone = models.CharField(max_length=20)
+  country = models.CharField(max_length=100, default="France")
+  address = models.CharField(max_length=255)
+  phone = models.CharField(max_length=20)
   riskProfile = { 1, 2, 3, 4, 5 } 
 
 
 class Emplacement(models.Model):
-
   class Emplacement_Type(models.TextChoices):
-         BA = "Banque"
-         CO = "Courtier"
-         AS = "Assureurs"
-         SG = "Société de gestion"
-         PF = "Plateforme de Fintech"
-  nom = models.CharField(max_length=100)
-  pays = models.CharField(max_length=100, default="France")
+         BA = "Bank"
+         BR = "Broker"
+         IN = "Insurers"
+         ASC = "Asset Management Companies"
+         FP = "FinTech Platforms"
+  name = models.CharField(max_length=100)
+  country = models.CharField(max_length=100, default="France")
   type = models.CharField(max_length=100, choices=Emplacement_Type)
