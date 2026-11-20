@@ -28,21 +28,21 @@ class Asset(models.Model):
     type = models.CharField(max_length=19, choices=Asset_Type)
     Opendate = models.DateField()
     Closedate = models.DateField(blank=True, null=True)
-    value = models.IntegerField(default=0)
+    value = models.FloatField(default=0)
     devise = models.CharField(choices=Devise, default=Devise.EUR)
     user = models.ForeignKey( FinanceUser, on_delete=models.CASCADE, related_name="actif")
 
 
 class CurrentAccount(Asset):
 
-    interest_rate = models.IntegerField(blank=True, null=True)
+    interest_rate = models.FloatField(blank=True, null=True)
 
 class SavingAccount(Asset):
 
     is_regulate = models.BooleanField()
-    ceilling = models.IntegerField()
-    gross_rate = models.IntegerField() 
-    net_rate = models.IntegerField()
+    ceilling = models.FloatField()
+    gross_rate = models.FloatField() 
+    net_rate = models.FloatField()
 
 class TaxWrapper(Asset):
 
@@ -54,7 +54,7 @@ class TaxWrapper(Asset):
         PER = 'Retirement Savings Plan'
 
     subscription_date = models.DateField()
-    cash_balance = models.IntegerField()
+    cash_balance = models.FloatField()
 
 class Security(Asset):
 
@@ -64,14 +64,14 @@ class Security(Asset):
         ETF = 'Exchange Traded Fund'
         BO = 'Bond' 
     ticker_code = models.CharField(max_length=12)
-    shares_count = models.IntegerField()
+    shares_count = models.FloatField()
     security_type = models.CharField(choices=Securities_Type)
     taxwrapper_link = models.ForeignKey(TaxWrapper,on_delete=models.CASCADE, related_name='security' )
 
 
 class PrivateEquity(Asset):
   
-    codeLEI = models.CharFiel(max_length=20)
+    codeLEI = models.CharField(max_length=20)
     numberFundUnit = models.FloatField()
 
 class Cryptocurrency(Asset):
