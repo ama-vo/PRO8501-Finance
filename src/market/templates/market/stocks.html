@@ -1,10 +1,11 @@
 
 {% extends 'base.html' %}
 
+{% block main_class %}container-fluid px-4{% endblock %}
+
 {% block content %}
 <div class="py-4 text-white">
 
-    <!-- Formulaire : ticker + choix de la période -->
     <form id="stock-form" class="row g-2 align-items-center mb-4">
         <div class="col-sm-6 col-md-4">
             <input type="text" id="symbol" class="form-control" value="AAPL"
@@ -25,10 +26,8 @@
         </div>
     </form>
 
-    <!-- Carte avec le graphique -->
     <section class="card bg-black text-white rounded-4 border-secondary p-3">
 
-        <!-- En-tête : logo + informations boursières -->
         <div class="d-flex align-items-center gap-3 mb-3">
 
             <div class="rounded-circle bg-white d-flex align-items-center justify-content-center flex-shrink-0"
@@ -56,8 +55,7 @@
 
         <div id="stock-error" class="alert alert-danger d-none" role="alert"></div>
 
-        <!-- Graphique -->
-        <div style="position: relative; height: 420px;">
+        <div style="position: relative; height: calc(100vh - 280px); min-height: 360px;">
             <canvas id="stock-chart"></canvas>
         </div>
 
