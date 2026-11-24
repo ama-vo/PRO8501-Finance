@@ -10,9 +10,8 @@ class FinanceUser(AbstractUser):
     # first_name = models.CharField(max_length=150)
 
     country = models.CharField(max_length=100, default="France")
-    address = models.CharField(max_length=255)
-    phone = models.CharField(max_length=20)
-    riskProfile = {1, 2, 3, 4, 5}
+    address = models.CharField(max_length=255, blank=True)
+    riskProfile = models.CharField(max_length=1,choices=[("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5"), ("6", "6")], default="1")
 
 
 class Institution(models.Model):

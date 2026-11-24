@@ -76,7 +76,6 @@ WSGI_APPLICATION = 'taurus_capital.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-"""
 
 DATABASES = {
     'default': {
@@ -96,6 +95,7 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
     }
 }
+"""
 
 
 # Password validation
