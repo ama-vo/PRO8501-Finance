@@ -1,0 +1,30 @@
+/* Styles propres à la page Research */
+.research-page {
+    color: #fff;
+}
+
+.research-company-logo {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+}
+
+.research-company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+}
+
+.research-chart-container {
+    position: relative;
+    height: calc(100vh - 280px);
+    min-height: 360px;
+}
+
+@media (max-width: 576px) {
+    .research-chart-container {
+        height: 55vh;
+        min-height: 300px;
+    }
+}

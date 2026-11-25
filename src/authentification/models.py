@@ -9,8 +9,23 @@ class FinanceUser(AbstractUser):
     # last_name = models.CharField(max_length=150)
     # first_name = models.CharField(max_length=150)
 
-    country = models.CharField(max_length=100, default="France")
-    address = models.CharField(max_length=255, blank=True)
+    country = models.CharField(
+        max_length=100,
+        default="France"
+    )
+
+    address = models.CharField(
+        max_length=255,
+        blank=True,
+        default=""
+    )
+
+    phone = models.CharField(
+        max_length=20,
+        blank=True,
+        default=""
+    )
+
     riskProfile = models.CharField(max_length=1,choices=[("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5"), ("6", "6")], default="1")
 
 

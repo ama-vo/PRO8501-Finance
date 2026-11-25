@@ -11,3 +11,45 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
+
+
+
+.account-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.account-avatar:hover {
+    background-color: #d4d4d4;
+    transform: scale(1.05);
+}
+
+.account-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    box-shadow: none;
+}
+
+.account-menu-toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+/* Éviter le soulignement et conserver le style */
+.account-menu-toggle:hover {
+    text-decoration: none;
+}
