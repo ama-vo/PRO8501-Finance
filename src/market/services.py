@@ -1,7 +1,7 @@
 import yfinance as yf
 
 PERIODS = {
-    "7d": "1h",
+    "7d": "1m",
     "1mo": "1d",
     "6mo": "1d",
     "1y": "1d",
@@ -11,7 +11,7 @@ PERIODS = {
 # On associe une période à une intervalle de récupération de données
 # Les périodes sont disponibles dans la documentation de yfinance
 
-INTRADAY = {"1h"}
+INTRADAY = {"1m"}
 
 def get_history(symbol, period="1y"):
     if period not in PERIODS:
