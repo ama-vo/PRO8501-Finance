@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 
-from authentification.views import index, login_user, signup
+from authentification.views import index, login_user, signup, logout_user
 from Asset.views import homePageAsset
 
 urlpatterns = [

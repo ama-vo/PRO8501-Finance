@@ -103,9 +103,18 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
+                                        
 
                                         <!-- Déconnexion -->
                                         <li>
+                                            <div class="dropdown-item">
+                                                <a
+                                                    class="nav-link text-body {% if request.resolver_match.url_name == 'asset' %}active{% endif %} py-1"
+                                                    href="{% url 'asset' %}"
+                                                >
+                                                    Assets
+                                                </a>
+                                            </div>
                                             <form method="post" action="{% url 'logout' %}">
                                                 {% csrf_token %}
 
@@ -169,6 +178,7 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
         ></script>
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.11/dist/htmx.min.js" integrity="sha384-2OatzQy1H+Zd/IIrjr1TcuDGqLXeHhbooAyJY1KdQMKnr4LZ22k31GBLdYKHmVjg" crossorigin="anonymous"></script>
 
         {% block extra_js %}{% endblock %}
 

@@ -84,21 +84,29 @@
                                     
                                 </div>
                                 <div class="mb-3">
-                                    <label for="" class="form-label"></label>
+                                    <label for="asset_type" class="form-label">Asset Type:</label>
                                     <select
                                         class="form-select form-select-lg"
-                                        name=""
-                                        id=""
+                                        name="asset_type"
+                                        
+                                        hx-get="/asset_attributs"
+                                        hx-target="#asset_attributs"
+                                        
                                     >
                                     <option selected>Select one</option>
                                     {% for asset_type in asset_types %}
 
-                                        <option value="">{{ asset_type }}</option>
+                                        <option value="{{ asset_type }}">{{ asset_type }}</option>
                                     
                                     {% endfor %}
                                  
                                     </select>
+
                                 </div>
+                                <div id="asset_attributs" name="asset_attributs">
+
+                                </div>
+                                
                                 
                                 
                             </form>
