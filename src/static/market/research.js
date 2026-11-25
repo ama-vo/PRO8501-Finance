@@ -1,224 +1,286 @@
-// URL de l'API Django
-    const API_URL = document.getElementById("research-page").dataset.apiUrl;
 
-    const form = document.getElementById("stock-form");
-    const symbolInput = document.getElementById("symbol");
-    const periodButtons = document.querySelectorAll("#periods button");
-    const errorBox = document.getElementById("stock-error");
+const API_URL = document.getElementById("research-page").dataset.apiUrl;
 
-    const titleEl = document.getElementById("stock-symbol");
-    const priceEl = document.getElementById("stock-price");
-    const variationEl = document.getElementById("stock-variation");
+const form = document.getElementById("stock-form");
+const symbolInput = document.getElementById("symbol");
+const periodButtons = document.querySelectorAll("#periods button");
+const errorBox = document.getElementById("stock-error");
 
-    const logoEl = document.getElementById("stock-logo");
-    const logoFallbackEl = document.getElementById("stock-logo-fallback");
+const titleEl = document.getElementById("stock-symbol");
+const priceEl = document.getElementById("stock-price");
+const variationEl = document.getElementById("stock-variation");
 
-    let chart = null;
-    let currentPeriod = "1y";
-    let requestId = 0;
+const logoEl = document.getElementById("stock-logo");
+const logoFallbackEl = document.getElementById("stock-logo-fallback");
 
-    // Correspondance entre ticker et domaine de l'entreprise
-    const COMPANY_DOMAINS = {
-        "AAPL": "apple.com",
-        "MSFT": "microsoft.com",
-        "GOOGL": "google.com",
-        "GOOG": "google.com",
-        "AMZN": "amazon.com",
-        "META": "meta.com",
-        "NVDA": "nvidia.com",
-        "TSLA": "tesla.com",
-        "NFLX": "netflix.com",
-        "OR.PA": "loreal.com",
-        "MC.PA": "lvmh.com",
-        "AIR.PA": "airbus.com",
-        "TTE.PA": "totalenergies.com",
-        "SAN.PA": "sanofi.com",
-        "BNP.PA": "group.bnpparibas",
-        "SU.PA": "se.com",
-        "RMS.PA": "hermes.com",
-        "CS.PA": "axa.com",
-        "V": "visa.com",
-        "MA": "mastercard.com",
-        "KO": "coca-colacompany.com",
-        "PEP": "pepsico.com",
-        "DIS": "thewaltdisneycompany.com",
-        "IBM": "ibm.com",
-        "INTC": "intel.com",
-        "AMD": "amd.com",
-        "ADBE": "adobe.com",
-        "CRM": "salesforce.com",
-        "PYPL": "paypal.com"
+const REFRESH_INTERVAL = 60 * 1000;
+
+let chart = null;
+let currentPeriod = "1y";
+let requestId = 0;
+let displayedSymbol = null;
+
+const COMPANY_DOMAINS = {
+    "AAPL": "apple.com",
+    "MSFT": "microsoft.com",
+    "GOOGL": "google.com",
+    "GOOG": "google.com",
+    "AMZN": "amazon.com",
+    "META": "meta.com",
+    "NVDA": "nvidia.com",
+    "TSLA": "tesla.com",
+    "NFLX": "netflix.com",
+    "OR.PA": "loreal.com",
+    "MC.PA": "lvmh.com",
+    "AIR.PA": "airbus.com",
+    "TTE.PA": "totalenergies.com",
+    "SAN.PA": "sanofi.com",
+    "BNP.PA": "group.bnpparibas",
+    "SU.PA": "se.com",
+    "RMS.PA": "hermes.com",
+    "CS.PA": "axa.com",
+    "V": "visa.com",
+    "MA": "mastercard.com",
+    "KO": "coca-colacompany.com",
+    "PEP": "pepsico.com",
+    "DIS": "thewaltdisneycompany.com",
+    "IBM": "ibm.com",
+    "INTC": "intel.com",
+    "AMD": "amd.com",
+    "ADBE": "adobe.com",
+    "CRM": "salesforce.com",
+    "PYPL": "paypal.com"
+};
+
+
+// Affichage du logo
+function updateCompanyLogo(symbol) {
+
+    const normalizedSymbol = symbol.trim().toUpperCase();
+    const domain = COMPANY_DOMAINS[normalizedSymbol];
+
+    logoEl.classList.add("d-none");
+    logoEl.removeAttribute("src");
+
+    logoFallbackEl.textContent = normalizedSymbol.slice(0, 2) || "?";
+    logoFallbackEl.classList.remove("d-none");
+
+    if (!domain) return;
+
+    logoEl.onload = () => {
+        logoEl.classList.remove("d-none");
+        logoFallbackEl.classList.add("d-none");
     };
 
-    // Afficher le logo de l'entreprise sélectionnée
-    function updateCompanyLogo(symbol) {
-
-        const normalizedSymbol = symbol.trim().toUpperCase();
-        const domain = COMPANY_DOMAINS[normalizedSymbol];
-
-        // Réinitialisation
+    logoEl.onerror = () => {
         logoEl.classList.add("d-none");
-        logoEl.removeAttribute("src");
-
-        logoFallbackEl.textContent = normalizedSymbol.slice(0, 2) || "?";
         logoFallbackEl.classList.remove("d-none");
+    };
 
-        // Aucun domaine connu
-        if (!domain) return;
+    logoEl.src = `https://logos.hunter.io/${encodeURIComponent(domain)}`;
+    logoEl.alt = `Logo de ${normalizedSymbol}`;
+}
 
-        // Gestion du chargement
-        logoEl.onload = () => {
-            logoEl.classList.remove("d-none");
-            logoFallbackEl.classList.add("d-none");
-        };
 
-        logoEl.onerror = () => {
-            logoEl.classList.add("d-none");
-            logoFallbackEl.classList.remove("d-none");
-        };
+// Configuration Chart.js
+Chart.defaults.color = "#adb5bd";
+Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
 
-        // API Logo Hunter
-        logoEl.src = `https://logos.hunter.io/${encodeURIComponent(domain)}`;
-        logoEl.alt = `Logo de ${normalizedSymbol}`;
-    }
 
-    // Couleurs du graphique
-    Chart.defaults.color = "#adb5bd";
-    Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
+function showError(message) {
+    errorBox.textContent = message;
+    errorBox.classList.toggle("d-none", !message);
+}
 
-    function showError(message) {
-        errorBox.textContent = message;
-        errorBox.classList.toggle("d-none", !message);
-    }
 
-    // Récupération des données boursières
-    async function loadHistory() {
+// Récupération des données
+async function loadHistory() {
 
-        const symbol = symbolInput.value.trim();
-        if (!symbol) return;
+    const symbol = symbolInput.value.trim();
 
-        const myRequest = ++requestId;
-        showError("");
+    if (!symbol) return;
+
+    const myRequest = ++requestId;
+
+    showError("");
+
+    try {
+
+        const url = API_URL.replace(
+            "SYMBOL",
+            encodeURIComponent(symbol)
+        );
+
+        const response = await fetch(
+            `${url}?period=${currentPeriod}`
+        );
+
+        let data = {};
 
         try {
-            const url = API_URL.replace("SYMBOL", encodeURIComponent(symbol));
-            const response = await fetch(`${url}?period=${currentPeriod}`);
-
-            let data = {};
-            try {
-                data = await response.json();
-            } catch {
-                // Réponse non JSON
-            }
-
-            if (myRequest !== requestId) return;
-
-            if (!response.ok) {
-                throw new Error(data.error || "Impossible de récupérer les données.");
-            }
-
-            drawChart(data);
-
-        } catch (error) {
-            if (myRequest !== requestId) return;
-            showError(error.message || "Impossible de récupérer les données.");
+            data = await response.json();
+        } catch {
+            // Réponse non JSON
         }
+
+        if (myRequest !== requestId) return;
+
+        if (!response.ok) {
+            throw new Error(
+                data.error || "Impossible de récupérer les données."
+            );
+        }
+
+        drawChart(data);
+
+    } catch (error) {
+
+        if (myRequest !== requestId) return;
+
+        showError(
+            error.message || "Impossible de récupérer les données."
+        );
+    }
+}
+
+
+// Mise à jour du graphique
+function drawChart(data) {
+
+    if (!data.values || data.values.length === 0) {
+        showError("Aucune donnée disponible pour ce ticker.");
+        return;
     }
 
-    // Construction du graphique
-    function drawChart(data) {
+    const first = data.values[0];
+    const last = data.values[data.values.length - 1];
 
-        const first = data.values[0];
-        const last = data.values[data.values.length - 1];
+    const change = first ? ((last - first) / first) * 100 : 0;
 
-        const change = ((last - first) / first) * 100;
-        const isUp = change >= 0;
-        const color = isUp ? "#22c55e" : "#ef4444";
+    const isUp = change >= 0;
+    const color = isUp ? "#22c55e" : "#ef4444";
 
-        // Mise à jour de l'en-tête
-        titleEl.textContent = data.symbol;
+    // Informations de l'entreprise
+    titleEl.textContent = data.symbol;
 
-        // Mise à jour du logo
+    if (displayedSymbol !== data.symbol) {
         updateCompanyLogo(data.symbol);
+        displayedSymbol = data.symbol;
+    }
 
-        priceEl.textContent = last.toLocaleString("fr-FR", {
-            minimumFractionDigits: 2
-        });
+    // Prix
+    priceEl.textContent = last.toLocaleString("fr-FR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
 
-        variationEl.textContent =
-            `${isUp ? "+" : ""}${change.toFixed(2)} %`;
+    variationEl.textContent =
+        `${isUp ? "+" : ""}${change.toFixed(2)} %`;
 
-        variationEl.className =
-            "fs-6 " + (isUp ? "text-success" : "text-danger");
+    variationEl.className =
+        "fs-6 " + (isUp ? "text-success" : "text-danger");
 
-        // Destruction de l'ancien graphique
-        if (chart) chart.destroy();
 
-        chart = new Chart(document.getElementById("stock-chart"), {
-            type: "line",
+    if (!chart) {
 
-            data: {
-                labels: data.labels,
+        chart = new Chart(
+            document.getElementById("stock-chart"),
+            {
+                type: "line",
 
-                datasets: [{
-                    label: data.symbol,
-                    data: data.values,
-                    borderColor: color,
-                    backgroundColor: color + "22",
-                    borderWidth: 2,
-                    pointRadius: 0,
-                    pointHoverRadius: 4,
-                    tension: 0.2,
-                    fill: true,
-                }],
-            },
+                data: {
+                    labels: data.labels,
 
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-
-                interaction: {
-                    mode: "index",
-                    intersect: false
+                    datasets: [{
+                        label: data.symbol,
+                        data: data.values,
+                        borderColor: color,
+                        backgroundColor: color + "22",
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        pointHoverRadius: 4,
+                        tension: 0.2,
+                        fill: true
+                    }]
                 },
 
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
 
-                scales: {
-                    x: {
-                        ticks: {
-                            maxTicksLimit: 8
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false
                         }
                     },
-                },
-            },
-        });
+
+                    scales: {
+                        x: {
+                            ticks: {
+                                maxTicksLimit: 8
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+        return;
     }
 
-    // Soumission du formulaire
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        loadHistory();
-    });
 
-    // Changement de période
-    periodButtons.forEach((button) => {
+    chart.data.labels = data.labels;
 
-        button.addEventListener("click", () => {
+    chart.data.datasets[0].label = data.symbol;
+    chart.data.datasets[0].data = data.values;
 
-            currentPeriod = button.dataset.period;
+    chart.data.datasets[0].borderColor = color;
+    chart.data.datasets[0].backgroundColor = color + "22";
 
-            periodButtons.forEach((b) => {
-                b.classList.toggle("active", b === button);
-            });
+    chart.update("none");
+}
 
-            loadHistory();
-        });
-    });
 
-    // Premier affichage
+form.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
     loadHistory();
+
+});
+
+
+periodButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        currentPeriod = button.dataset.period;
+
+        periodButtons.forEach((b) => {
+            b.classList.toggle("active", b === button);
+        });
+
+        loadHistory();
+
+    });
+
+});
+
+
+loadHistory();
+
+
+setInterval(() => {
+
+    if (currentPeriod === "7d" && !document.hidden) {
+        loadHistory();
+    }
+
+}, REFRESH_INTERVAL);
+
