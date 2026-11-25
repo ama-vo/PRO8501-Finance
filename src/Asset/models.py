@@ -6,7 +6,7 @@ from authentification.models import FinanceUser
 class Asset(models.Model):
 
     class Asset_Type(models.TextChoices):
-        CC = 'Current Account', 'Cash' 
+        CC = 'Current Account' 
         LB = 'Savings Accounts'
         EF = 'Tax Wrappers' 
         AC = 'Stocks' 
@@ -25,6 +25,7 @@ class Asset(models.Model):
         CAD = 'Canadian Dollar', 'CA$' 
             
 
+    name = models.CharField(max_length=100)
     type = models.CharField(max_length=19, choices=Asset_Type)
     Opendate = models.DateField()
     Closedate = models.DateField(blank=True, null=True)
@@ -76,7 +77,7 @@ class PrivateEquity(Asset):
 
 class Cryptocurrency(Asset):
 
-    codeSlugCoinGecko = models.IntegerField(max_length=6)
+    codeSlugCoinGecko = models.IntegerField()
     numberFundUnit = models.FloatField()
 
 class Furniture(Asset): 

@@ -40,6 +40,10 @@
                             <li class="nav-item">
 				<a class="nav-link {% if request.resolver_match.url_name == 'stocks' %}active{% endif %} py-1" href="{% url 'stocks' %}">Stocks</a>
                             </li>
+
+                            <li class="nav-item">
+				<a class="nav-link {% if request.resolver_match.url_name == 'asset' %}active{% endif %} py-1" href="{% url 'asset' %}">Asset</a>
+                            </li>
                            
                         </ul>
                         

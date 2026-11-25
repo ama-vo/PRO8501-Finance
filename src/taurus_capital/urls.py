@@ -19,6 +19,7 @@ from django.urls import include, path
 
 
 from authentification.views import index, login_user, signup
+from Asset.views import homePageAsset
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     path('login/',login_user, name='login'),
     path('signup/',signup, name='signup'),
     path('market/', include('market.urls')),
+    path('asset/', homePageAsset, name='asset')
 
 ]
