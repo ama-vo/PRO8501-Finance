@@ -2,7 +2,8 @@
 <!doctype html>
 <html lang="en" data-bs-theme="light">
     <head>
-        <title>Title</title>
+        <title>Taurus Capital</title>
+	<link rel="icon" href="{% static 'logo_taurus_capital-min-white.png' %}" type="image/png">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -31,17 +32,12 @@
                     
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %} py-1" href="#">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {% if request.resolver_match.url_name == 'history' %}active{% endif %} py-1" href="#">History</a>
-                            </li>
-                            <li class="nav-item">
-				<a class="nav-link {% if request.resolver_match.url_name == 'stocks' %}active{% endif %} py-1" href="{% url 'stocks' %}">Stocks</a>
-                            </li>
-                           
-                        </ul>
+		        	{% if user.is_authenticated %}
+        			<li class="nav-item">
+            				<a class="nav-link {% if request.resolver_match.url_name == 'stocks' %}active{% endif %} py-1" href="{% url 'stocks' %}">Stocks</a>
+        			</li>
+        			{% endif %}
+    			</ul>
                         
                         <ul class="navbar-nav  my-0 gap-3">
                             <li class="nav-item">
