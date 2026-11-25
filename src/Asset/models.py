@@ -6,14 +6,14 @@ from authentification.models import FinanceUser
 class Asset(models.Model):
 
     class Asset_Type(models.TextChoices):
-        CC = 'Current Account' 
-        LB = 'Savings Accounts'
-        EF = 'Tax Wrappers' 
-        AC = 'Stocks' 
+        CA = 'Current Account' 
+        SA = 'Savings Accounts'
+        TW = 'Tax Wrappers' 
+        SC = 'Stocks' 
         PE = 'Private Equity'
         CRY = 'Cryptocurrency'
-        MOB = 'Personal Property' 
-        IMO = 'Real Estate'
+        PP = 'Personal Property' 
+        RE = 'Real Estate'
 
 
     class Devise(models.TextChoices):

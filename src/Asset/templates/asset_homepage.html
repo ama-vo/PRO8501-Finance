@@ -89,14 +89,14 @@
                                         class="form-select form-select-lg"
                                         name="asset_type"
                                         
-                                        hx-get="/asset_attributs"
+                                        hx-get="/asset"
                                         hx-target="#asset_attributs"
                                         
                                     >
                                     <option selected>Select one</option>
                                     {% for asset_type in asset_types %}
 
-                                        <option value="{{ asset_type }}">{{ asset_type }}</option>
+                                        <option value="{{ asset_type.label }}">{{ asset_type.value }}</option>
                                     
                                     {% endfor %}
                                  
