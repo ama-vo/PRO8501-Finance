@@ -1,0 +1,39 @@
+<div class="mb-3">
+    <label for="ticker_code" class="form-label">Ticker Code :</label>
+    <input
+        type="text"
+        class="form-control"
+        name="ticker_code"
+        id="ticker_code"
+    />
+</div>
+
+<div class="mb-3">
+    <label for="shares_count" class="form-label">Shares Count :</label>
+    <input
+        type="number"
+        step="any"
+        class="form-control"
+        name="shares_count"
+        id="shares_count"
+    />
+</div>
+
+<div class="mb-3">
+    <label for="security_type" class="form-label">Security Type :</label>
+    <select class="form-select" name="security_type" id="security_type">
+        <option value="SS">Single Stock</option>
+        <option value="ETF">Exchange Traded Fund</option>
+        <option value="BO">Bond</option>
+    </select>
+</div>
+
+<div class="mb-3">
+    <label for="taxwrapper_link" class="form-label">Taxwrapper Link :</label>
+    <select class="form-select" name="taxwrapper_link" id="taxwrapper_link">
+        <option value="" selected>Select Tax Wrapper</option>
+        {% for wrapper in tax_wrappers %}
+            <option value="{{ wrapper.id }}">{{ wrapper.name }}</option>
+        {% endfor %}
+    </select>
+</div>
