@@ -1,6 +1,8 @@
 body {
     background-color: rgb(0, 0, 0);
+    padding-top : 75px;
 }
+
 .glass-card {
     
     background: rgba(255, 255, 255, 0.2);
@@ -12,7 +14,14 @@ body {
 
 }
 
-
+.hero-image {
+    width: 40%;
+    max-width: 900px;
+    height: 80%;
+    display: block;
+    margin: 30px auto;
+    border-radius: 16px;
+}
 
 .account-avatar {
     display: inline-flex;
@@ -49,7 +58,6 @@ body {
     border-radius: 50%;
 }
 
-/* Éviter le soulignement et conserver le style */
 .account-menu-toggle:hover {
     text-decoration: none;
 }
