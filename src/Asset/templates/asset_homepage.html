@@ -6,7 +6,7 @@
     
     <div class="card  bg-black text-white rounded-4 border-secondary p-3 align-items-center justify-content-center">
         
-        <div class="card-body text-center">
+        <div class="card-body ">
             
             <p class="card-text text-center">No assets were reported</p>
             
@@ -20,9 +20,7 @@
                 + Add an Asset
             </button>
             
-            <!-- Modal Body -->
-            <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-            <div
+           <div
                 class="modal fade"
                 id="assetForm"
                 tabindex="-1"
@@ -40,23 +38,82 @@
                     <div class="modal-content bg-black text-white border-secondary">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalTitleId">
-                                Modal title
+                                Add an Asset :
                             </h5>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
+                            
                         </div>
-                        <div class="modal-body">Body</div>
+                        <div class="modal-body">
+
+                            <form method="POST">
+
+                                {% csrf_token %}
+
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div
+                                    class="alert alert-primary alert-dismissible fade show bg-danger text-light"
+                                    role="alert"
+                                >
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="alert"
+                                        aria-label="Close"
+                                    ></button>
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                                {% endif %} 
+                                <script>
+                                    var alertList = document.querySelectorAll(".alert");
+                                    alertList.forEach(function (alert) {
+                                        new bootstrap.Alert(alert);
+                                    });
+                                </script>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Name :</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name=""
+                                        id=""
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                    />
+                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label"></label>
+                                    <select
+                                        class="form-select form-select-lg"
+                                        name=""
+                                        id=""
+                                    >
+                                    <option selected>Select one</option>
+                                    {% for asset_type in asset_types %}
+
+                                        <option value="">{{ asset_type }}</option>
+                                    
+                                    {% endfor %}
+                                 
+                                    </select>
+                                </div>
+                                
+                                
+                            </form>
+
+
+                            
+                    
+                        </div>
                         <div class="modal-footer">
                             <button
                                 type="button"
                                 class="btn btn-secondary"
                                 data-bs-dismiss="modal"
                             >
-                                Close
+                                Cancel
                             </button>
                             <button type="button" class="btn btn-primary">Save</button>
                         </div>
@@ -84,7 +141,23 @@
 
 
 
-{% endif %}
+
+<div class="row justify-content-center mt-5">
+    {% for asset in assets %}
+    <div class="card  bg-black text-white rounded-4 border-secondary p-3 ">
+        <div class="card-header h2">{{ asset.name }}</div>
+        <div class="card-body text-center align-self-center">
+            
+            <p class="card-text text-center">No assets were reported</p>
+            
+        </div>
+        
+    </div>
+    
+    {% endfor %}
+    {% endif %}
+
+</div>
 {% endblock %}
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
+from .models import Asset
 
 
 
@@ -10,4 +10,11 @@ def homePageAsset(request):
     assets = request.user.actif.all()
     for asset in assets:
         print(asset.value)
-    return render(request,"asset_homepage.html", {"assets": assets})
+    asset_types = Asset.Asset_Type.values
+    
+    context = {
+        "assets" : assets,
+        "asset_types" : asset_types
+    }
+    
+    return render(request,"asset_homepage.html", context)
