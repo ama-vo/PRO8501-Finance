@@ -1,0 +1,169 @@
+<div
+                class="modal fade"
+                id="assetForm"
+                tabindex="-1"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                
+                role="dialog"
+                aria-labelledby="assetForm"
+                aria-hidden="true"
+            >
+                <div
+                    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md "
+                    role="document"
+                >
+                    <div class="modal-content bg-black text-white border-secondary">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">
+                                Add an Asset :
+                            </h5>
+                            
+                        </div>
+                        <div class="modal-body">
+
+                            <form 
+                                method="POST"
+                                hx-post="{% url "asset" %}"
+                                hx-target="#assetDescription"
+                                hx-swap="outerHTML"
+                                >
+
+                                {% csrf_token %}
+
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div
+                                    class="alert alert-primary alert-dismissible fade show bg-danger text-light"
+                                    role="alert"
+                                >
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="alert"
+                                        aria-label="Close"
+                                    ></button>
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                                {% endif %} 
+                                <script>
+                                    var alertList = document.querySelectorAll(".alert");
+                                    alertList.forEach(function (alert) {
+                                        new bootstrap.Alert(alert);
+                                    });
+                                </script>
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name :</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                        id="name"
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                    />
+                                    
+                                </div>
+                                
+                                <div class="form-field mb-3">
+                                    <label for="datepicker" class="form-label">Asset Opening Date :</label>
+                                    <input 
+                                        type="date"
+                                        name="Opendate"
+                                        id="datepicker" 
+                                        class="form-control"
+                                        required
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="value" class="form-label">Value :</label>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        name="value"
+                                        id="value"
+                                        aria-describedby="helpId"
+                                        placeholder=""
+                                    />
+                                    
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="devise" class="form-label">Currency :</label>
+                                    <select
+                                        class="form-select "
+                                        name="devise"
+                                    >
+                                    <option selected>Select one</option>
+                                    {% for value, label in currency %}
+
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    
+                                    {% endfor %}
+                                 
+                                    </select>
+
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="asset_type" class="form-label">Asset Type:</label>
+                                    <select
+                                        class="form-select "
+                                        name="asset_type"
+                                        hx-swap="innerHTML"
+                                        hx-get="{% url 'asset' %}"
+                                        hx-target="#asset_attributs"
+                                        
+                                    >
+                                    <option value="init">Select one</option>
+                                    {% for asset_type in asset_types %}
+
+                                        <option value="{{ asset_type.label }}">{{ asset_type.value }}</option>
+                                    
+                                    {% endfor %}
+                                 
+                                    </select>
+
+                                </div>
+
+                                <div class="modal-header mb-3">
+                                    
+                                    <h5 class="modal-title" id="modalTitleId">
+                                        Asset attributs :
+                                    </h5>
+                                    
+                                </div>
+
+                                <div id="asset_attributs" name="asset_attributs">
+
+                                </div>
+                                
+                                
+                                
+                           
+
+
+                            
+                    
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                type="submit" 
+                                class="btn btn-primary"
+                                data-bs-dismiss="modal"
+                                >Save</button>
+                        </div>
+                         </form>
+                    </div>
+                </div>
+            </div>

@@ -38,12 +38,20 @@ class CurrentAccount(Asset):
 
     interest_rate = models.FloatField(blank=True, null=True)
 
+    def save(self, *args, **kwargs):
+        self.type = Asset.Asset_Type.CA
+        super().save(*args, **kwargs)
+
 class SavingAccount(Asset):
 
     is_regulate = models.BooleanField()
     ceilling = models.FloatField()
     gross_rate = models.FloatField() 
     net_rate = models.FloatField()
+
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.SA
+            super().save(*args, **kwargs)
 
 class TaxWrapper(Asset):
 
@@ -57,6 +65,9 @@ class TaxWrapper(Asset):
     subscription_date = models.DateField()
     cash_balance = models.FloatField()
 
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.TW
+            super().save(*args, **kwargs)
 class Security(Asset):
 
     class Securities_Type(models.TextChoices):
@@ -69,16 +80,26 @@ class Security(Asset):
     security_type = models.CharField(choices=Securities_Type)
     taxwrapper_link = models.ForeignKey(TaxWrapper,on_delete=models.CASCADE, related_name='security' )
 
-
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.SC
+            super().save(*args, **kwargs)
 class PrivateEquity(Asset):
   
     codeLEI = models.CharField(max_length=20)
     numberFundUnit = models.FloatField()
 
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.PE
+            super().save(*args, **kwargs)
+
 class Cryptocurrency(Asset):
 
     codeSlugCoinGecko = models.IntegerField()
     numberFundUnit = models.FloatField()
+
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.CRY
+            super().save(*args, **kwargs)
 
 class Furniture(Asset): 
 
@@ -86,7 +107,15 @@ class Furniture(Asset):
     address = models.CharField(max_length=255, null=True)
     sellingPrice = models.FloatField(null=True)
 
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.PP
+            super().save(*args, **kwargs)
+
 class RealEstate(Asset):
 
     address = models.CharField(max_length=255)
     sellingPrice = models.FloatField(null=True)
+
+    def save(self, *args, **kwargs):
+            self.type = Asset.Asset_Type.RE
+            super().save(*args, **kwargs)
