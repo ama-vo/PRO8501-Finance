@@ -16,7 +16,7 @@ const logoFallbackEl = document.getElementById("stock-logo-fallback");
 const REFRESH_INTERVAL = 60 * 1000;
 
 let chart = null;
-let currentPeriod = "1y";
+let currentPeriod = "7d";
 let requestId = 0;
 let displayedSymbol = null;
 
