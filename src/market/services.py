@@ -1,6 +1,7 @@
 import yfinance as yf
 
 PERIODS = {
+    "1d": "1m",
     "7d": "1m",
     "1mo": "1d",
     "6mo": "1d",
