@@ -29,13 +29,17 @@ def homePageAsset(request):
     if request.method == "POST":
 
         print(request.POST)
-        """if request.POST.get("asset_type") == "Ca":
+        if request.POST.get("asset_type") == "Ca":
 
-            models.CurrentAccount.objects.create(
+            CurrentAccount.objects.create(
                 name=request.POST.get("name"),
-                Opendate=request.POST.get("name"),
-            )
-"""
+                Opendate=request.POST.get("Opendate"),
+                devise=request.POST.get("currency"),
+                user=request.user,
+                type=request.POST.get("asset_type"),
+                interest_rate=request.POST.get("interest_rate")
+            )   
+
     
     assets = request.user.actif.all()
     
