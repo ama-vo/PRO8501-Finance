@@ -129,6 +129,39 @@ qu'on proposera ainsi que de leur portée géographique (US, Europe, émergent)
 - Question sur les requêtes d’API.
 
 
+## Jeudi 5 novembre :
 
+### [Groupe]
+- Questionnements sur le MCD. 
+
+
+## Mercredi 25 novembre :
+
+### [Groupe]
+- 
+ 
+### [Oscar] 
+- X
+
+### [Eliott]
+- X
+
+### [Amarante]
+- Passer d'OTP à TOTP (pour que personne n'utilise la clef pour envoyer des mails à leur compte)
+
+
+## Vendredi 27 novembre :
+
+### [Groupe]
+- X
+ 
+### [Oscar] 
+- X
+
+### [Eliott]
+- X
+
+### [Amarante]
+- Continuer l'implémentation du TOTP. 
 
 
