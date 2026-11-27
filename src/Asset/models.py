@@ -76,7 +76,7 @@ class PrivateEquity(Asset):
 
 class Cryptocurrency(Asset):
 
-    codeSlugCoinGecko = models.IntegerField(max_length=6)
+    codeSlugCoinGecko = models.IntegerField()
     numberFundUnit = models.FloatField()
 
 class Furniture(Asset): 

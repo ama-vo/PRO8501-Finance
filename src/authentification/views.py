@@ -1,6 +1,8 @@
+
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
+from django.views.decorators.http import require_POST
 from authentification.models import FinanceUser
 from allauth.account.models import EmailAddress
 import pyotp
@@ -96,6 +98,13 @@ def cancel_totp(request):
     request.session.pop(PENDING_TOTP_USER_SESSION_KEY, None)
     request.session.pop(PENDING_TOTP_ENROLLMENT_SECRET_SESSION_KEY, None)
     return redirect("login")
+
+
+@require_POST
+def logout_user(request):
+    """Déconnecte l'utilisateur puis le redirige vers la page d'accueil."""
+    logout(request)
+    return redirect("index")
 
 
 def signup(request):

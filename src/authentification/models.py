@@ -3,18 +3,29 @@ from django.db import models
 
 
 class FinanceUser(AbstractUser):
-    # id = models.AutoField(primary_key=True)
 
-    # email = models.EmailField()
-    # last_name = models.CharField(max_length=150)
-    # first_name = models.CharField(max_length=150)
+    country = models.CharField(
+        max_length=100,
+        default="France"
+    )
+
+    address = models.CharField(
+        max_length=255,
+        blank=True,
+        default=""
+    )
+
+    phone = models.CharField(
+        max_length=20,
+        blank=True,
+        default=""
+    )
 
     country = models.CharField(max_length=100, default="France")
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
     totp_secret = models.CharField(max_length=64, blank=True, default="")
     riskProfile = {1, 2, 3, 4, 5}
-
 
 class Institution(models.Model):
     TYPE_CHOICES = [
