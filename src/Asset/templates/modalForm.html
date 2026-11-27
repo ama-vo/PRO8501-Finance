@@ -21,14 +21,19 @@
                             
                         </div>
                         <div class="modal-body">
+                            {% if not assets %}
 
+                            <form 
+                                method="POST"
+                                >
+                            {% else %}
                             <form 
                                 method="POST"
                                 hx-post="{% url "asset" %}"
                                 hx-target="#assetDescription"
                                 hx-swap="outerHTML"
                                 >
-
+                            {% endif %}
                                 {% csrf_token %}
 
                                 {% if messages %}

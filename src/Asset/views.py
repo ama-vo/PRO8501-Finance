@@ -49,13 +49,13 @@ def homePageAsset(request):
     if request.method == "POST":
 
         asset_type = request.POST.get("asset_type")
-        print(asset_type)
+        
         form_class = ASSET_FORMS.get(asset_type)
         
         if form_class:
             
             form_info = form_class(request.POST)
-            print(request.headers)
+            
             if form_info.is_valid():
 
                 asset = form_info.save(commit=False)
@@ -69,23 +69,43 @@ def homePageAsset(request):
 
         assets = request.user.actif.all()
         
+        asset_percentage = {}
+        for asset_item in assets:
+            total_asset_value+=asset_item.value
+
+        for asset_item in assets:
+            asset_percentage[asset_item.type] += (asset_item.value/total_asset_value)*100
+        print(asset_percentage)
         asset_types = Asset.Asset_Type
         currency = Asset.Devise.choices     
         context = {
                     "assets" : assets,
                     "asset_types" : asset_types,
                     "currency" : currency,
+                    "total_asset_value" : total_asset_value,
                 }
         return render(request,"asset_homepage.html", context)
     
     assets = request.user.actif.all()
-            
+    asset_percentage = {}
+    total_asset_value = 0
+    for asset_item in assets:
+            total_asset_value+=asset_item.value
+    
+    for asset_item in assets:
+        key = str(asset_item.type).replace(" ","_")
+        percentage = (asset_item.value / total_asset_value) * 100
+        asset_percentage[key] = round(asset_percentage.get(key, 0) + percentage,1)
+
+    print(asset_percentage)
+    
     asset_types = Asset.Asset_Type
     currency = Asset.Devise.choices     
     context = {
                         "assets" : assets,
                         "asset_types" : asset_types,
                         "currency" : currency,
-                    }
-
+                        "total_asset_value" : total_asset_value,
+                        "asset_percentages" : asset_percentage,
+                }
     return render(request,"asset_homepage.html", context)

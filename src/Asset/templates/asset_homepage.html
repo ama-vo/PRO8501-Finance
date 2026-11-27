@@ -30,12 +30,18 @@
 
 </div>
 {% else %}
-
-<div class="row  mt-5">
-    <div class="col-6">
+<div class="row mt-5 text-light-emphasis">
+    Net worth :
+</div>
+<div class="row  mt-2">
+    <div class="col-4 text-light">
+        <h2>${{ total_asset_value }}</h2>
+    
+    </div>
+    <div class="col-2 ms-auto ">
                 <button
                 type="button"
-                class="btn btn-light border-secondary"
+                class="btn btn-light border-secondary align-self-end"
                 data-bs-toggle="modal"
                 data-bs-target="#assetForm"
 
@@ -47,7 +53,131 @@
 
     </div>
 </div>
+<div class="row mt-2 m-0 border-0">
+    <div class="progress p-0 bg-dark" style="height: 10px; gap: 2px; background-color: #121212 !important;">
+    
+            <div class="progress-bar" style="width: {% if 'Current_Account' in asset_percentages %}{{ asset_percentages.Current_Account }}{% else %}0{% endif %}%; background-color: #F4F1EA;"></div>
 
+            
+            <div class="progress-bar" style="width: {% if 'Saving_Account' in asset_percentages %}{{ asset_percentages.Saving_Account }}{% else %}0{% endif %}%; background-color: #6E7681;"></div>
+
+            
+            <div class="progress-bar" style="width: {% if 'Tax_Wrappers' in asset_percentages %}{{ asset_percentages.Tax_Wrappers }}{% else %}0{% endif %}%; background-color: #E3C77E;"></div>
+
+            
+            <div class="progress-bar" style="width: {% if 'Securities' in asset_percentages %}{{ asset_percentages.Securities }}{% else %}0{% endif %}%; background-color: #A67C2E;"></div>
+
+            
+            <div class="progress-bar" style="width: {% if 'Private_Equity' in asset_percentages %}{{ asset_percentages.Private_Equity }}{% else %}0{% endif %}%; background-color: #CFD3D9;"></div>
+
+            
+            <div class="progress-bar" style="width: {% if 'Cryptocurrency' in asset_percentages %}{{ asset_percentages.Cryptocurrency }}{% else %}0{% endif %}%; background-color: #B0743F;"></div>
+
+            
+            <div class="progress-bar" style="width: {% if 'Furniture' in asset_percentages %}{{ asset_percentages.Furniture }}{% else %}0{% endif %}%; background-color: #7C8B7A;"></div>
+
+            
+            <div class="progress-bar" style="width: {% if 'Personal_Property' in asset_percentages %}{{ asset_percentages.Personal_Property }}{% else %}0{% endif %}%; background-color: #8FA3BF;"></div>
+    </div>
+</div>
+
+<div class="row mt-1 ">
+    {% if 'Current_Account' in asset_percentages %}
+        
+            <div class="col-2 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#F4F1EA" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Current Account: {{ asset_percentages.Current_Account }} %
+            </div>
+        {% endif %}
+        
+
+    {% if 'Saving_Account' in asset_percentages %}
+
+        
+            <div class="col-3 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6E7681" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Saving Account: {{ asset_percentages.Saving_Account }} %
+            </div>
+        {% endif %}
+        
+    
+    {% if 'Tax_Wrappers' in asset_percentages %}
+        
+        
+            <div class="col-2 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#E3C77E" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Tax Wrappers: {{ asset_percentages.Tax_Wrappers }} %
+            </div>
+        {% endif %}
+        
+    
+    {% if 'Securities' in asset_percentages %}
+        
+        
+            <div class="col-2 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A67C2E" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Securities: {{ asset_percentages.Securities }} %
+            </div>
+        {% endif %}
+        
+
+    {% if 'Private_Equity' in asset_percentages %}
+        
+        
+            <div class="col-2 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#CFD3D9" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Private Equity: {{ asset_percentages.Private_Equity }} %
+            </div>
+        {% endif %}
+        
+    
+    {% if 'Cryptocurrency' in asset_percentages %}
+        
+        
+            <div class="col-2 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B0743F" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Cryptocurrency: {{ asset_percentages.Cryptocurrency }} %
+            </div>
+        {% endif %}
+        
+
+    {% if 'Furniture' in asset_percentages %}
+        
+        
+            <div class="col-2 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7C8B7A" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Furniture: {{ asset_percentages.Furniture }} %
+            </div>
+        {% endif %}
+        
+
+    {% if 'Personal_Property' in asset_percentages %}
+        
+        
+            <div class="col-3 text-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#8FA3BF" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                </svg>
+                Personal Property: {{ asset_percentages.Personal_Property }} %
+            </div>
+        
+
+    {% endif %}
+</div>
 
 
 {% include "assetDescription.html" %}

@@ -1,12 +1,21 @@
 <div id="assetDescription" class="row justify-content-center mt-5">
     {% for asset in assets %}
     <div class="card  bg-black text-white rounded-4 border-secondary p-3 mb-3">
-        <div class="card-header h2">{{ asset.name }}</div>
-        <div class="card-body text-center align-self-center">
-            
-            <p class="card-text text-center">{{ asset.type.value }}</p>
-            
+        <div class="row">
+            <div class="col">
+                <div class="card-header h2">{{ asset.name }}</div>
+            </div>
+            <div class="col-2 ms-auto h3 align-self-end">${{ asset.value }}</div>
         </div>
+        
+        <div class="row">
+          <div class="card-body ">
+            
+            <p class="card-text  badge rounded-pill border text-secondary">{{ asset.type }}</p>
+            
+            </div>  
+        </div>
+        
         
     </div>
     {% endfor %}
