@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <section class="card bg-black text-white rounded-4 p-4" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Connexion</h2>
+        <form method="post" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="mb-3">
+                {{ form.login.label_tag }}
+                {{ form.login }}
+                {{ form.login.errors }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+            {% if form.remember %}
+                <div class="form-check mb-3">
+                    {{ form.remember }}
+                    {{ form.remember.label_tag }}
+                </div>
+            {% endif %}
+            {{ redirect_field }}
+            <button type="submit" class="btn btn-light w-100">Se connecter</button>
+        </form>
+    </section>
+</div>
+{% endblock %}
