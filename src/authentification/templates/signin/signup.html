@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+
+
 <div class="row justify-content-center mt-5">
    
         <section class="card bg-black text-white rounded-5" style="max-width: 400px">
+
              <form method="POST">
                 {% csrf_token %}
             <div class="card-block">
@@ -43,6 +47,7 @@
                         id="username"
                         placeholder="username"
                     />
+
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label">First name:</label>
@@ -78,6 +83,7 @@
                         aria-describedby="emailHelpId"
                         placeholder="abc@mail.com"
                     />
+
                 </div>
                     <div class="mb-4">
                         <label for="password" class="form-label">Password</label>
@@ -95,9 +101,7 @@
 
                     
                     <div class="d-flex justify-content-center mb-4 ">
-                        <button class="btn btn-light" type="submit">
-                            submit
-                        </button>
+                        <button class="btn btn-light" type="submit"> submit </button>
                     </div>
             </div>
             
@@ -106,6 +110,8 @@
     
 
 </div>
+
+
 
 
 {% endblock %}

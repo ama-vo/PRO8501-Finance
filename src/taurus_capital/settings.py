@@ -165,12 +165,6 @@ DEFAULT_FROM_EMAIL = os.environ.get(
 )
 
 ACCOUNT_LOGIN_METHODS = {'username'}
-ACCOUNT_LOGIN_BY_CODE_REQUIRED = {'password'}
-ACCOUNT_LOGIN_BY_CODE_FORMAT = {
-    'length': 6,
-    'numeric': True,
-    'dashed': False,
-}
 LOGIN_REDIRECT_URL = 'index'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

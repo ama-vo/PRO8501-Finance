@@ -16,20 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from allauth.account.views import LoginView
 
-
-from authentification.views import cancel_login_code, index, signup
+from authentification.views import index, login_user, signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('login/', LoginView.as_view(), name='login'),
-    path('login/cancel-code/', cancel_login_code, name='cancel_login_code'),
+    path('login/', login_user, name='login'),
     path('signup/',signup, name='signup'),
-    path('accounts/', include('allauth.urls')),
-    # Must stay after allauth.urls: overrides its account_confirm_login_code URL.
-    path('otp/', include('authentification.urls')),
+    path('totp/', include('authentification.urls')),
     path('market/', include('market.urls')),
 
 ]
