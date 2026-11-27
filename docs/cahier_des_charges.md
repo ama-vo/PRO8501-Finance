@@ -31,16 +31,25 @@ L'investissement boursier implique généralement d'une bonne hygiène et litté
 
 ## 2.	Fonctionnalités 
 
-### MVP 
-- Suivi du portefeuille de patrimoine en 360 des actifs financiers de l'utilisateur (PEA, Livret, Immobilier, Héritage etc...) 
-- Historique de l'évolution du patrimoine de l'utilisateur 
-- Gestion des dépenses de la vie courante et revenu 
-- L'utilisateur doit pouvoir se connecter à un compte personnel sécurisé avec un système d'authentification Django sera utilisé.
-- Outils d'audit interne avec scoring en fonction des objectifs FIRE (Financial Independence, Retire Early)
+### MVP
+- Suivi du portefeuille du patrimoine de l'utilisateur en 360° avec ces entités suivantes : 
+    - Compte Courant/ Espèce
+    - Livret Bancaire
+    - Enveloppe Fiscale (PEA, CTO)
+    - Action
+    - Private Equity
+    - Cryptomonnaie
+    - Mobilier
+    - Immobilier
+- Historique de l'évolution du patrimoine de l'utilisateur.
+- Pouvoir effectuer des transactions ponctuelles ou périodiques entre ces entités/actifs.
+- L'utilisateur doit pouvoir se connecter à un compte personnel sécurisé avec un système d'authentification.
 
   
 ### Lot 1 
+- Gestion des dépenses de la vie courante et revenus.
 - Création de catégories personnelles dans la gestion des dépenses et revenu (e.g. Voyage Italie)
+- Outils d'audit interne avec scoring en fonction des objectifs FIRE (Financial Independence, Retire Early)
 - Projection linéaire du plan d'investissement de l'utilisateur avec concordance des objectifs spécifiés 
 - Le partage de sa stratégie à d'autres utilisateurs
 
