@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="row justify-content-center mt-5">
+    <h2 class="text-white">
+        {% if enrollment_required %}Set up two-factor authentication{% else %}Security verification{% endif %}
+    </h2>
+
+    {% if enrollment_required %}
+        <section class="col-12 col-md-8 mb-4 p-3 border rounded text-white">
+            <h3 class="h5">  Connect an authenticator app</h3>
+            <p>Add an account manually in your authenticator app and enter this key:</p>
+            <p class="mb-2"> <strong>Account key</strong></p>
+            <code class="d-block p-2 bg-light text-dark user-select-all">{{ totp_secret }}</code>
+            <p class="small mt-2 mb-0">Choose TOTP, with a six-digit code that changes every 30 seconds.</p>
+        </section>
+
+    {% else %}
+        <p class="text-white">Enter the six-digit code from your authenticator app.</p>
+
+    {% endif %}
+
+    {% if error %}
+        <p class="alert alert-danger" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <div class="col-12 col-md-6">
+        <form method="post">
+
+            {% csrf_token %}
+            <label for="otp-code" class="form-label text-white">
+                {% if enrollment_required %}Confirm the app code{% else %}Verification code{% endif %}
+            </label>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <input
+                    type="text"
+                    id="otp-code"
+                    name="code"
+                    class="form-control flex-grow-1"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    pattern="[0-9]{6}"
+                    maxlength="6"
+                    required
+                >
+                <button type="submit" class="btn btn-light flex-shrink-0">Verify</button>
+            </div>
+
+        </form>
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <form method="post" action="{% url 'cancel_totp' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link p-0">&larr;  Back to login</button>
+            </form>
+            {% if enrollment_required %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button
+                        type="submit"
+                        name="skip_enrollment"
+                        value="1"
+                        class="btn btn-link p-0"
+                    > 
+                    Skip for now
+                    
+                    </button>
+                </form>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+

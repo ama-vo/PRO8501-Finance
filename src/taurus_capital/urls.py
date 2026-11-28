@@ -26,6 +26,8 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('signup/', signup, name='signup'),
     path('logout/', logout_user, name='logout'),
+    path('totp/', include('authentification.urls')),
     path('market/', include('market.urls')),
 ]
+
 

@@ -21,6 +21,10 @@ class FinanceUser(AbstractUser):
         default=""
     )
 
+    country = models.CharField(max_length=100, default="France")
+    address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=20)
+    totp_secret = models.CharField(max_length=64, blank=True, default="")
     riskProfile = {1, 2, 3, 4, 5}
 
 class Institution(models.Model):
